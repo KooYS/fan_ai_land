@@ -1,7 +1,9 @@
 import Link from "next/link"
 
 import { MainNav } from "@/components/layout/nav"
-import { Button } from "../ui/button"
+import { Button } from "@/ui/button"
+import { CommandSearch } from "@/components/layout/command-search"
+import { UserCircle } from "lucide-react"
 
 export function Header() {
   return (
@@ -10,20 +12,21 @@ export function Header() {
         <div className="container flex h-14 items-center">
           <MainNav />
           <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
-            <nav className="flex items-center gap-0.5">
+            <nav className="flex items-center gap-4">
+              <CommandSearch />
               <Button
                 asChild
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 px-0"
+                className="h-6 w-6"
               >
                 <Link
                   href={""}
                   target="_blank"
+                  className="h-6 w-6"
                   rel="noreferrer"
                 >
-                  쳌쳌
-                  <span className="sr-only">GitHub</span>
+                  <UserCircle className="!h-5 !w-5" />
                 </Link>
               </Button>
             </nav>
