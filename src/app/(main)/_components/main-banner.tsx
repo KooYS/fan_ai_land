@@ -64,7 +64,9 @@ const MainBanner = ({
           {items.map((item, index) => {
             return (
               <CarouselItem key={index}>
-                <Image src={item.src} alt={`main-banner-${index}`} width={1500} height={500} className="m-auto w-full" />
+                <div className="relative w-full aspect-[2/1]">
+                  <Image src={item.src} alt={`main-banner-${index}`} fill className="object-cover" />
+                </div>
               </CarouselItem>
             )
           }

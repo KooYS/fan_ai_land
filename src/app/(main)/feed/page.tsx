@@ -34,116 +34,141 @@ type Post = {
   comments: Comment[];
 };
 
-// Sample data
+// KPOP Fan Content Sample Data
 const initialPosts: Post[] = [
   {
     id: '1',
-    username: 'janedoe',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'Just visited this amazing place! What do you think?',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 124,
+    username: 'NewJeans_Fansite',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Hanni fancam from Super Shy live stage! The vocals were absolutely stunning 🎤✨ #NewJeans #Hanni',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 15420,
     timestamp: '2 hours ago',
     comments: [
       {
         id: 'c1',
-        username: 'johndoe',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'Looks amazing! Where is this?',
+        username: 'KPOP_Lover_123',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'Her stage presence is unreal! 🔥',
         timestamp: '1 hour ago',
       },
       {
         id: 'c2',
-        username: 'sarahsmith',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: "I've been there last summer, it's even better in person!",
+        username: 'Bunnies_Official',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'Thank you for sharing! Saving this immediately 💙',
         timestamp: '45 minutes ago',
       },
     ],
   },
   {
     id: '2',
-    username: 'mikebrown',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'My new photography project. Feedback welcome!',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 89,
+    username: 'IVE_Moments',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Wonyoung "I AM" dance practice behind the scenes 💃 The choreography details are insane! #IVE #Wonyoung',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 12340,
     timestamp: '5 hours ago',
     comments: [
       {
         id: 'c3',
-        username: 'photoexpert',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'Great composition! Love the lighting.',
+        username: 'DIVE_Forever',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'She makes it look so effortless! Queen behavior 👑',
         timestamp: '3 hours ago',
       },
     ],
   },
   {
     id: '3',
-    username: 'traveler',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'Sunset views from my latest adventure',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 256,
+    username: 'aespa_Archive',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Karina Drama MV filming location photos! The aesthetic is perfect 🎬🌟 #aespa #Karina #Drama',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 18920,
     timestamp: '1 day ago',
     comments: [
       {
         id: 'c4',
-        username: 'sunsetlover',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'This is breathtaking! 😍',
+        username: 'MY_aespa',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'The visuals are out of this world! 😍',
         timestamp: '20 hours ago',
       },
       {
         id: 'c5',
-        username: 'adventureseeker',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'Adding this to my bucket list right now!',
+        username: 'KPOP_Editor',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'I want to visit this location! Where is it?',
         timestamp: '18 hours ago',
       },
       {
         id: 'c6',
-        username: 'photographer',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'What camera did you use for this shot?',
+        username: 'Photographer_KR',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'What camera settings did you use? The colors are amazing!',
         timestamp: '12 hours ago',
       },
     ],
   },
   {
     id: '4',
-    username: 'artlover',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'Found this amazing street art today',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 178,
+    username: 'BLACKPINK_Daily',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Jennie at Paris Fashion Week! She owns every red carpet 💅✨ #BLACKPINK #Jennie #FashionWeek',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 24560,
     timestamp: '3 days ago',
     comments: [],
   },
   {
     id: '5',
-    username: 'foodie',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'Best brunch spot in the city!',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 312,
+    username: 'LESSERAFIM_Hub',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Chaewon Perfect Night encore stage compilation! Her live vocals never disappoint 🎤💕 #LESSERAFIM #Chaewon',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 16780,
     timestamp: '4 days ago',
     comments: [],
+  },
+  {
+    id: '6',
+    username: 'TWICE_Gallery',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Nayeon Pop! dance practice preview! The energy is incredible 💃🎵 #TWICE #Nayeon',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 14230,
+    timestamp: '5 days ago',
+    comments: [
+      {
+        id: 'c7',
+        username: 'ONCE_Forever',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'Nayeon always brings the best vibes! 🌟',
+        timestamp: '4 days ago',
+      },
+    ],
   },
 ];
 
 // Image Gallery Sidebar Component
-function ImageGallerySidebar({ posts }: { posts: Post[] }) {
+function ImageGallerySidebar({
+  posts,
+  onImageClick
+}: {
+  posts: Post[];
+  onImageClick: (postId: string) => void;
+}) {
   return (
     <div className="w-full h-full p-4">
-      <h2 className="text-xl font-bold mb-4">이미지 갤러리</h2>
+      <h2 className="text-xl font-bold mb-4">팬 콘텐츠 갤러리</h2>
       <ScrollArea className="h-[calc(100vh-100px)]">
         <div className="grid grid-cols-2 gap-2">
           {posts.map((post) => (
             <div
               key={post.id}
-              className="relative group overflow-hidden rounded-md"
+              className="relative group overflow-hidden rounded-md cursor-pointer"
+              onClick={() => onImageClick(post.id)}
             >
               <img
                 src={post.media || '/placeholder.svg'}
@@ -154,6 +179,14 @@ function ImageGallerySidebar({ posts }: { posts: Post[] }) {
                 <div className="text-white text-xs">
                   <p className="font-medium">@{post.username}</p>
                   <p className="text-white/80">{post.timestamp}</p>
+                </div>
+              </div>
+              <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="bg-white rounded-full p-1.5 shadow-lg">
+                  <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -168,6 +201,7 @@ export default function SNSFeed() {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [newComments, setNewComments] = useState<Record<string, string>>({});
   const [likedPosts, setLikedPosts] = useState<Record<string, boolean>>({});
+  const [highlightedPost, setHighlightedPost] = useState<string | null>(null);
 
   const handleLike = (postId: string) => {
     setPosts(
@@ -223,15 +257,30 @@ export default function SNSFeed() {
     });
   };
 
+  const handleImageClick = (postId: string) => {
+    setHighlightedPost(postId);
+    const element = document.getElementById(`post-${postId}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => setHighlightedPost(null), 2000);
+    }
+  };
+
   return (
-    <div className="w-full max-w-[1200px] mx-auto">
-      <div className="flex flex-col lg:flex-row">
+    <div className="w-full max-w-[1200px] mx-auto p-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         {/* Main Feed - Full width on mobile, reduced on desktop */}
         <div className="w-full lg:w-[calc(100%-500px)]">
           <ScrollArea className="h-[600px] lg:h-[calc(100vh-40px)] pr-4">
-            <div className="space-y-4 max-w-md mx-auto">
+            <div className="space-y-4 max-w-md mx-auto px-2">
               {posts.map((post) => (
-                <Card key={post.id} className="overflow-hidden">
+                <Card
+                  key={post.id}
+                  id={`post-${post.id}`}
+                  className={`overflow-hidden transition-all duration-300 ${
+                    highlightedPost === post.id ? 'ring-2 ring-primary shadow-xl scale-105' : ''
+                  }`}
+                >
                   <CardHeader className="p-4 pb-0">
                     <div className="flex items-center space-x-3">
                       <Avatar>
@@ -366,7 +415,7 @@ export default function SNSFeed() {
 
         {/* Image Gallery Sidebar - Hidden on mobile, 500px on desktop */}
         <div className="hidden lg:block w-[500px] border-l">
-          <ImageGallerySidebar posts={posts} />
+          <ImageGallerySidebar posts={posts} onImageClick={handleImageClick} />
         </div>
       </div>
     </div>

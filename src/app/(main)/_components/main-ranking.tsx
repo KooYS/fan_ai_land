@@ -1,8 +1,9 @@
 'use client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import React from 'react';
 import Image from 'next/image';
-import { Award, Heart } from 'lucide-react';
+import { Award, Heart, Radio } from 'lucide-react';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import { cn } from '@/lib/utils';
@@ -66,6 +67,14 @@ const MainRanking = ({ items }: { items: Item[] }) => {
                   </div>
                   <div className="relative">
                     <Prize rank={index + 1} />
+                    {index < 3 && (
+                      <div className="absolute top-2.5 left-2.5">
+                        <Badge variant="destructive" className="gap-1 animate-pulse">
+                          <Radio className="w-3 h-3" />
+                          LIVE
+                        </Badge>
+                      </div>
+                    )}
                     <Image
                       className="aspect-square rounded-lg"
                       src={item.image}

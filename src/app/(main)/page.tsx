@@ -1,85 +1,48 @@
 import MainBanner from './_components/main-banner';
 import MainRanking from './_components/main-ranking';
 import MainRecentFeeds from './_components/main-recent-feeds';
-import MainDuckziller from './_components/main-store';
+import MainStore from './_components/main-store';
+import AIHommaSection from './_components/ai-homma-section';
+import { mockMainRankingItems } from '@/data/mock-ranking';
+
+const bannerItems = [
+  { src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=4140&auto=format&fit=crop' },
+  { src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=4140&auto=format&fit=crop' },
+  { src: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=4140&auto=format&fit=crop' },
+  { src: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=4140&auto=format&fit=crop' },
+];
 
 export default function Home() {
   return (
     <div className="container-wrapper">
       <div>
-        <MainBanner
-          items={[
-            { src: '/images/banner.jpg' },
-            { src: '/images/banner.jpg' },
-            { src: '/images/banner.jpg' },
-            { src: '/images/banner.jpg' },
-          ]}
-        />
+        <MainBanner items={bannerItems} />
       </div>
       <div className="container flex flex-col justify-center py-6 gap-3">
         <div className="rounded-lg border border-black/20 border-dashed bg-white backdrop-blur-md p-6  w-full gap-2 flex flex-col">
-          <h1 className="text-xl font-bold">RANKING</h1>
-          <MainRanking
-            items={[
-              {
-                id: '1',
-                name: 'Lorem Ipsum',
-                avatar: 'https://github.com/shadcn.png',
-                image:
-                  'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                like: 3,
-              },
-              {
-                id: '2',
-                name: 'Lorem Ipsum',
-                avatar: 'https://github.com/shadcn.png',
-                image:
-                  'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                like: 3,
-              },
-              {
-                id: '3',
-                name: 'Lorem Ipsum',
-                avatar: 'https://github.com/shadcn.png',
-                image:
-                  'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                like: 3,
-              },
-              {
-                id: '4',
-                name: 'Lorem Ipsum',
-                avatar: 'https://github.com/shadcn.png',
-                image:
-                  'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                like: 3,
-              },
-              {
-                id: '5',
-                name: 'Lorem Ipsum',
-                avatar: 'https://github.com/shadcn.png',
-                image:
-                  'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                like: 3,
-              },
-              {
-                id: '6',
-                name: 'Lorem Ipsum',
-                avatar: 'https://github.com/shadcn.png',
-                image:
-                  'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                like: 3,
-              },
-            ]}
-          />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <h1 className="text-xl font-bold">RANKING</h1>
+              <div className="flex items-center gap-2 text-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+                <span className="text-muted-foreground text-xs">실시간 업데이트 중</span>
+              </div>
+            </div>
+          </div>
+          <MainRanking items={mockMainRankingItems} />
         </div>
+        <AIHommaSection />
         <div className="flex gap-3">
           <div className="rounded-lg border border-black/20 border-dashed bg-white backdrop-blur-md p-6  w-full gap-2 flex flex-col">
             <h1 className="text-xl font-bold">RECENT</h1>
             <MainRecentFeeds />
           </div>
           <div className="rounded-lg border border-black/20 border-dashed bg-white backdrop-blur-md p-6  w-full gap-2 flex flex-col">
-            <h1 className="text-xl font-bold">POPULAR DUCKZILLER</h1>
-            <MainDuckziller />
+            <h1 className="text-xl font-bold">POPULAR CREATORS</h1>
+            <MainStore />
           </div>
         </div>
       </div>

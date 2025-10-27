@@ -34,79 +34,79 @@ type Post = {
   comments: Comment[];
 };
 
-// Sample data
+// KPOP Fan Content Sample Data
 const initialPosts: Post[] = [
   {
     id: '1',
-    username: 'janedoe',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'Just visited this amazing place! What do you think?',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 124,
+    username: 'NewJeans_Fansite',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Hanni fancam from Super Shy live stage! 🎤✨ #NewJeans',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 15420,
     timestamp: '2 hours ago',
     comments: [
       {
         id: 'c1',
-        username: 'johndoe',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'Looks amazing! Where is this?',
+        username: 'KPOP_Lover_123',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'Her stage presence is unreal! 🔥',
         timestamp: '1 hour ago',
       },
       {
         id: 'c2',
-        username: 'sarahsmith',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: "I've been there last summer, it's even better in person!",
+        username: 'Bunnies_Official',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'Thank you for sharing! 💙',
         timestamp: '45 minutes ago',
       },
     ],
   },
   {
     id: '2',
-    username: 'mikebrown',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'My new photography project. Feedback welcome!',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 89,
+    username: 'IVE_Moments',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Wonyoung "I AM" dance practice 💃 #IVE',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 12340,
     timestamp: '5 hours ago',
     comments: [
       {
         id: 'c3',
-        username: 'photoexpert',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'Great composition! Love the lighting.',
+        username: 'DIVE_Forever',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'She makes it look so effortless! 👑',
         timestamp: '3 hours ago',
       },
     ],
   },
   {
     id: '3',
-    username: 'traveler',
-    avatar: '/placeholder.svg?height=40&width=40',
-    content: 'Sunset views from my latest adventure',
-    media: '/placeholder.svg?height=500&width=500',
-    likes: 256,
+    username: 'aespa_Archive',
+    avatar: 'https://github.com/shadcn.png',
+    content: 'Karina Drama MV filming location 🎬🌟 #aespa',
+    media: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=4140&auto=format&fit=crop',
+    likes: 18920,
     timestamp: '1 day ago',
     comments: [
       {
         id: 'c4',
-        username: 'sunsetlover',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'This is breathtaking! 😍',
+        username: 'MY_aespa',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'The visuals are out of this world! 😍',
         timestamp: '20 hours ago',
       },
       {
         id: 'c5',
-        username: 'adventureseeker',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'Adding this to my bucket list right now!',
+        username: 'KPOP_Editor',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'I want to visit this location!',
         timestamp: '18 hours ago',
       },
       {
         id: 'c6',
-        username: 'photographer',
-        avatar: '/placeholder.svg?height=32&width=32',
-        content: 'What camera did you use for this shot?',
+        username: 'Photographer_KR',
+        avatar: 'https://github.com/shadcn.png',
+        content: 'What camera did you use?',
         timestamp: '12 hours ago',
       },
     ],
@@ -178,7 +178,7 @@ export default function MainRecentFeeds() {
 
   return (
     <div className="w-full mx-auto my-3">
-      <ScrollArea className="h-[600px] pr-4">
+      <ScrollArea className="h-[600px] pr-4 ">
         <div className="space-y-4">
           {posts.map((post) => (
             <Card key={post.id} className="overflow-hidden">

@@ -1,0 +1,65 @@
+import { Creator } from '@/types';
+
+export const mockCreators: Creator[] = [
+  {
+    id: '1',
+    name: 'NewJeans_Fansite',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 145000,
+    artistTag: 'NewJeans',
+    verified: true,
+  },
+  {
+    id: '2',
+    name: 'IVE_Moments',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 128000,
+    artistTag: 'IVE',
+    verified: true,
+  },
+  {
+    id: '3',
+    name: 'aespa_Archive',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 167000,
+    artistTag: 'aespa',
+    verified: true,
+  },
+  {
+    id: '4',
+    name: 'BLACKPINK_Daily',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 234000,
+    artistTag: 'BLACKPINK',
+    verified: true,
+  },
+  {
+    id: '5',
+    name: 'LESSERAFIM_Hub',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 98000,
+    artistTag: 'LE SSERAFIM',
+  },
+  {
+    id: '6',
+    name: 'TWICE_Gallery',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 189000,
+    artistTag: 'TWICE',
+    verified: true,
+  },
+  {
+    id: '7',
+    name: 'Stray_Kids_Fan',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 156000,
+    artistTag: 'Stray Kids',
+  },
+  {
+    id: '8',
+    name: 'TXT_Universe',
+    avatar: 'https://github.com/shadcn.png',
+    followers: 87000,
+    artistTag: 'TXT',
+  },
+];
