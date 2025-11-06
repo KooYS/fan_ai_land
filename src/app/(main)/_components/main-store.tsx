@@ -3,7 +3,6 @@ import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { mockCreators } from '@/data/mock-creators';
-import { Creator } from '@/types';
 
 const formatFollowers = (num: number): string => {
   if (num >= 1000000) {
