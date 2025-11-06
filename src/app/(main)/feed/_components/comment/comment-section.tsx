@@ -70,7 +70,7 @@ const CommentSection = ({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 pt-2">
       <Separator className="my-0" />
 
       {/* Comment Stats and Sort */}

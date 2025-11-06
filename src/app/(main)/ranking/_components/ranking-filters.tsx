@@ -97,16 +97,16 @@ const RankingFilters = ({ onFilterChange }: RankingFiltersProps) => {
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Artist</label>
           <Select
-            value={filters.artist || ''}
+            value={filters.artist || 'all'}
             onValueChange={(value) =>
-              handleFilterChange({ artist: value || null })
+              handleFilterChange({ artist: value === 'all' ? null : value })
             }
           >
             <SelectTrigger>
               <SelectValue placeholder="All Artists" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Artists</SelectItem>
+              <SelectItem value="all">All Artists</SelectItem>
               {ARTISTS.map((artist) => (
                 <SelectItem key={artist} value={artist}>
                   {artist}
@@ -119,16 +119,16 @@ const RankingFilters = ({ onFilterChange }: RankingFiltersProps) => {
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Content Type</label>
           <Select
-            value={filters.contentType || ''}
+            value={filters.contentType || 'all'}
             onValueChange={(value) =>
-              handleFilterChange({ contentType: value || null })
+              handleFilterChange({ contentType: value === 'all' ? null : value })
             }
           >
             <SelectTrigger>
               <SelectValue placeholder="All Types" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Types</SelectItem>
+              <SelectItem value="all">All Types</SelectItem>
               {CONTENT_TYPES.map((type) => (
                 <SelectItem key={type} value={type}>
                   {type}

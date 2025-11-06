@@ -166,7 +166,7 @@ const PostComposerSheet = ({
             </div>
           </SheetHeader>
 
-          <div className="mt-6 overflow-y-auto max-h-[calc(90vh-120px)] pr-4 space-y-4">
+          <div className="mt-6 overflow-y-auto max-h-[calc(90vh-180px)] pr-4 space-y-4">
             {/* User Info */}
             <div className="flex items-center gap-3">
               <Avatar className="w-10 h-10">

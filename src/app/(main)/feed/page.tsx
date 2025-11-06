@@ -206,7 +206,7 @@ export default function SNSFeed() {
             <ScrollArea className="h-[calc(100vh-40px)] pr-4">
               <div className="space-y-4">
                 {posts.map((post) => (
-                  <div key={post.id} id={`post-${post.id}`} className="space-y-4">
+                  <div key={post.id} id={`post-${post.id}`} className="space-y-0">
                     <FeedCard
                       post={post}
                       onLike={handleLike}
