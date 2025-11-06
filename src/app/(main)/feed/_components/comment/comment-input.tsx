@@ -76,7 +76,8 @@ const CommentInput = ({
       <div className="flex-1 min-w-0">
         {replyingTo && (
           <p className="text-xs text-muted-foreground mb-2">
-            <span className="font-medium text-foreground">{replyingTo}</span>님에게 답글 중
+            <span className="font-medium text-foreground">{replyingTo}</span>
+            님에게 답글 중
           </p>
         )}
 
@@ -122,9 +123,7 @@ const CommentInput = ({
           </div>
         </div>
 
-        <p className="text-xs text-muted-foreground mt-1">
-          Cmd+Enter로 전송
-        </p>
+        <p className="text-xs text-muted-foreground mt-1">Cmd+Enter로 전송</p>
       </div>
     </div>
   );

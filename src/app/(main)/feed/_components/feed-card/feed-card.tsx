@@ -1,11 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import FeedHeader from './feed-header';
 import FeedContent, { MediaItem } from './feed-content';
 import FeedActions from './feed-actions';
 import FeedStats from './feed-stats';
+import CommentSection from '../comment/comment-section';
+import { Comment } from '../comment/comment-item';
 import { cn } from '@/lib/utils';
 
 export interface FeedCardPost {
@@ -27,6 +30,7 @@ export interface FeedCardPost {
 interface FeedCardProps {
   post: FeedCardPost;
   highlighted?: boolean;
+  comments?: Comment[];
   onLike?: (postId: string) => void;
   onComment?: (postId: string) => void;
   onShare?: (postId: string) => void;
@@ -35,11 +39,17 @@ interface FeedCardProps {
   onReport?: (postId: string) => void;
   onShareMenu?: (postId: string) => void;
   onCopyLink?: (postId: string) => void;
+  onAddComment?: (postId: string, text: string, parentCommentId?: string) => void;
+  onLikeComment?: (commentId: string) => void;
+  onReportComment?: (commentId: string) => void;
+  userAvatar?: string;
+  userName?: string;
 }
 
 const FeedCard = ({
   post,
   highlighted = false,
+  comments = [],
   onLike,
   onComment,
   onShare,
@@ -48,7 +58,19 @@ const FeedCard = ({
   onReport,
   onShareMenu,
   onCopyLink,
+  onAddComment,
+  onLikeComment,
+  onReportComment,
+  userAvatar,
+  userName,
 }: FeedCardProps) => {
+  const [showComments, setShowComments] = useState(false);
+
+  const handleComment = (postId: string) => {
+    setShowComments(true);
+    onComment?.(postId);
+  };
+
   return (
     <Card
       className={cn(
@@ -93,10 +115,23 @@ const FeedCard = ({
           liked={post.likedByUser}
           bookmarked={post.bookmarkedByUser}
           onLike={onLike}
-          onComment={onComment}
+          onComment={handleComment}
           onShare={onShare}
           onBookmark={onBookmark}
         />
+
+        {/* Comment Section - Hidden by default */}
+        {showComments && (
+          <CommentSection
+            postId={post.id}
+            comments={comments}
+            userAvatar={userAvatar}
+            userName={userName}
+            onAddComment={onAddComment}
+            onLikeComment={onLikeComment}
+            onReportComment={onReportComment}
+          />
+        )}
       </div>
     </Card>
   );

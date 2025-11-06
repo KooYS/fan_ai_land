@@ -137,16 +137,16 @@ const RankingCharts = ({ items }: RankingChartsProps) => {
               <CardTitle>Artist Performance (Avg AI Score)</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-80 space-y-2">
+              <div className="h-80 overflow-y-auto space-y-2 pr-2">
                 {artistData.map((artist) => (
                   <div key={artist.artist} className="flex items-center gap-3 p-3 bg-muted/50 rounded">
-                    <div className="flex-1">
-                      <p className="font-medium text-sm">{artist.artist}</p>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-sm truncate">{artist.artist}</p>
                       <p className="text-xs text-muted-foreground">
                         평균 점수: {artist.avgScore.toFixed(2)} | 콘텐츠: {artist.count}개
                       </p>
                     </div>
-                    <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="w-24 h-2 bg-muted rounded-full overflow-hidden flex-shrink-0">
                       <div
                         className="h-full bg-blue-500"
                         style={{ width: `${(artist.avgScore / 100) * 100}%` }}

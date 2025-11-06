@@ -3,7 +3,10 @@
     "allow": [
       "Bash(pnpm dev)",
       "Bash(npx shadcn@latest add:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(gh issue view:*)",
+      "Bash(xargs ls:*)",
+      "Bash(pnpm build:*)"
     ],
     "deny": [],
     "ask": []

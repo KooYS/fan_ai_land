@@ -54,10 +54,10 @@ const CommentItem = ({
   };
 
   return (
-    <div className={cn('space-y-2', nested && 'ml-8')}>
+    <div className={cn('space-y-2', nested && 'ml-4 opacity-90')}>
       <div className="flex gap-2">
         {/* Avatar */}
-        <Avatar className="w-6 h-6 flex-shrink-0">
+        <Avatar className={cn('flex-shrink-0', nested ? 'w-5 h-5' : 'w-6 h-6')}>
           <AvatarImage src={comment.avatar} alt={comment.username} />
           <AvatarFallback>
             {comment.username.slice(0, 2).toUpperCase()}
@@ -66,25 +66,26 @@ const CommentItem = ({
 
         {/* Comment Content */}
         <div className="flex-1 min-w-0">
-          <div className="bg-muted rounded-lg px-3 py-2">
-            <p className="font-medium text-xs text-foreground">
+          <div className={cn('bg-muted rounded-lg px-3 py-2', nested && 'py-1.5 px-2.5')}>
+            <p className={cn('font-medium text-foreground', nested ? 'text-xs' : 'text-xs')}>
               @{comment.username}
             </p>
-            <p className="text-sm text-foreground mt-0.5 break-words">
+            <p className={cn('text-foreground mt-0.5 break-words', nested ? 'text-xs' : 'text-sm')}>
               {comment.content}
             </p>
           </div>
 
           {/* Comment Actions */}
-          <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
-            <span>{formatTime(comment.timestamp)}</span>
+          <div className={cn('flex items-center gap-2 mt-1 text-muted-foreground', nested ? 'text-xs' : 'text-xs')}>
+            <span className={nested ? 'text-xs' : 'text-xs'}>{formatTime(comment.timestamp)}</span>
 
             <Button
               variant="ghost"
               size="sm"
               className={cn(
                 'h-5 px-2 text-xs gap-1',
-                liked && 'text-red-500'
+                liked && 'text-red-500',
+                nested && 'h-4 px-1'
               )}
               onClick={handleLike}
             >
@@ -101,7 +102,7 @@ const CommentItem = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-5 px-2 text-xs gap-1"
+                className={cn('h-5 px-2 text-xs gap-1', nested && 'h-4 px-1')}
                 onClick={() => onReply(comment.username, comment.id)}
               >
                 <MessageCircle className="w-3 h-3" />
@@ -113,7 +114,7 @@ const CommentItem = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-5 px-2 text-xs text-red-600 hover:text-red-700 hover:bg-red-50"
+                className={cn('h-5 px-2 text-xs text-red-600 hover:text-red-700 hover:bg-red-50', nested && 'h-4 px-1')}
                 onClick={() => onReport(comment.id)}
               >
                 <Flag className="w-3 h-3" />
