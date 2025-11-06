@@ -1,21 +1,10 @@
 'use client';
 
 import { useMemo } from 'react';
-import {
-  LineChart,
-  Line,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { RankingItem } from '@/types';
+import { TrendingUp } from 'lucide-react';
 
 interface RankingChartsProps {
   items: RankingItem[];
@@ -131,39 +120,13 @@ const RankingCharts = ({ items }: RankingChartsProps) => {
               <CardTitle>24-Hour Trend (Views)</CardTitle>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={trendData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="hour" stroke="currentColor" />
-                  <YAxis stroke="currentColor" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                      border: 'none',
-                      borderRadius: '8px',
-                      color: '#fff',
-                    }}
-                  />
-                  <Legend />
-                  {items.slice(0, 5).map((item, index) => (
-                    <Line
-                      key={item.id}
-                      type="monotone"
-                      dataKey={item.contentTitle}
-                      stroke={[
-                        '#3b82f6',
-                        '#ef4444',
-                        '#10b981',
-                        '#f59e0b',
-                        '#8b5cf6',
-                      ][index]}
-                      dot={false}
-                      isAnimationActive={true}
-                      animationDuration={800}
-                    />
-                  ))}
-                </LineChart>
-              </ResponsiveContainer>
+              <div className="h-80 flex items-center justify-center bg-muted/30 rounded-lg border border-border">
+                <div className="text-center">
+                  <TrendingUp className="w-12 h-12 mx-auto mb-2 text-muted-foreground opacity-50" />
+                  <p className="text-muted-foreground text-sm">차트 데이터 로딩 중...</p>
+                  <p className="text-xs text-muted-foreground mt-1">{trendData.length}시간 데이터 준비됨</p>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -174,36 +137,24 @@ const RankingCharts = ({ items }: RankingChartsProps) => {
               <CardTitle>Artist Performance (Avg AI Score)</CardTitle>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={artistData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="artist" stroke="currentColor" />
-                  <YAxis stroke="currentColor" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                      border: 'none',
-                      borderRadius: '8px',
-                      color: '#fff',
-                    }}
-                  />
-                  <Legend />
-                  <Bar
-                    dataKey="avgScore"
-                    fill="#3b82f6"
-                    name="Avg AI Score"
-                    isAnimationActive={true}
-                    animationDuration={800}
-                  />
-                  <Bar
-                    dataKey="count"
-                    fill="#10b981"
-                    name="Content Count"
-                    isAnimationActive={true}
-                    animationDuration={800}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+              <div className="h-80 overflow-y-auto space-y-2 pr-2">
+                {artistData.map((artist) => (
+                  <div key={artist.artist} className="flex items-center gap-3 p-3 bg-muted/50 rounded">
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-sm truncate">{artist.artist}</p>
+                      <p className="text-xs text-muted-foreground">
+                        평균 점수: {artist.avgScore.toFixed(2)} | 콘텐츠: {artist.count}개
+                      </p>
+                    </div>
+                    <div className="w-24 h-2 bg-muted rounded-full overflow-hidden flex-shrink-0">
+                      <div
+                        className="h-full bg-blue-500"
+                        style={{ width: `${(artist.avgScore / 100) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -214,29 +165,24 @@ const RankingCharts = ({ items }: RankingChartsProps) => {
               <CardTitle>AI Score Distribution</CardTitle>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={scoreDistribution}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="range" stroke="currentColor" />
-                  <YAxis stroke="currentColor" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                      border: 'none',
-                      borderRadius: '8px',
-                      color: '#fff',
-                    }}
-                  />
-                  <Legend />
-                  <Bar
-                    dataKey="count"
-                    fill="#f59e0b"
-                    name="Content Count"
-                    isAnimationActive={true}
-                    animationDuration={800}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+              <div className="h-80 space-y-3">
+                {scoreDistribution.map((dist) => (
+                  <div key={dist.range} className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm font-medium">{dist.range}</p>
+                      <span className="text-xs text-muted-foreground">
+                        {dist.count}개 (평균: {dist.avg.toFixed(2)})
+                      </span>
+                    </div>
+                    <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-amber-500"
+                        style={{ width: `${(dist.count / items.length) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </TabsContent>

@@ -154,7 +154,7 @@ const ImageUploadZone = ({
 
       {/* Image Previews */}
       {images.length > 0 && (
-        <div className="space-y-2">
+        <div className="space-y-2 max-h-[300px] overflow-y-auto">
           <p className="text-sm font-medium">업로드된 이미지</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {images.map((image, idx) => (

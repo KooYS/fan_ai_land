@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import FeedCard, { FeedCardPost } from './_components/feed-card/feed-card';
-import CommentSection from './_components/comment/comment-section';
 import { Comment } from './_components/comment/comment-item';
 import PostComposerSheet, { PostData } from './_components/post-composer/post-composer-sheet';
 import PostComposerFAB from './_components/post-composer/post-composer-fab';
@@ -133,10 +132,13 @@ export default function SNSFeed() {
   };
 
   const handleComment = (postId: string) => {
-    // Scroll to comment section
-    const element = document.getElementById(`post-${postId}`);
+    // Scroll to comment section and trigger focus
+    const element = document.getElementById(`comment-section-${postId}`);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Dispatch custom event to show comment input
+      const event = new CustomEvent('openCommentInput', { detail: { postId } });
+      element.dispatchEvent(event);
     }
   };
 
@@ -153,7 +155,7 @@ export default function SNSFeed() {
     );
   };
 
-  const handleAddComment = (postId: string, text: string) => {
+  const handleAddComment = (postId: string, text: string, parentCommentId?: string) => {
     const newComment: Comment = {
       id: `c${Date.now()}`,
       username: 'You',
@@ -162,12 +164,44 @@ export default function SNSFeed() {
       timestamp: new Date().toISOString(),
       likes: 0,
       likedByUser: false,
+      replies: [],
     };
 
-    setPostComments({
-      ...postComments,
-      [postId]: [...(postComments[postId] || []), newComment],
-    });
+    if (parentCommentId) {
+      // Add as a reply to parent comment
+      setPostComments((prev) => {
+        const updated = { ...prev };
+        const comments = updated[postId] || [];
+
+        // Find parent comment and add reply
+        const addReplyToComment = (comments: Comment[]): Comment[] => {
+          return comments.map((comment) => {
+            if (comment.id === parentCommentId) {
+              return {
+                ...comment,
+                replies: [...(comment.replies || []), newComment],
+              };
+            }
+            if (comment.replies && comment.replies.length > 0) {
+              return {
+                ...comment,
+                replies: addReplyToComment(comment.replies),
+              };
+            }
+            return comment;
+          });
+        };
+
+        updated[postId] = addReplyToComment(comments);
+        return updated;
+      });
+    } else {
+      // Add as a top-level comment
+      setPostComments({
+        ...postComments,
+        [postId]: [...(postComments[postId] || []), newComment],
+      });
+    }
   };
 
   const handleCreatePost = (data: PostData) => {
@@ -206,9 +240,10 @@ export default function SNSFeed() {
             <ScrollArea className="h-[calc(100vh-40px)] pr-4">
               <div className="space-y-4">
                 {posts.map((post) => (
-                  <div key={post.id} id={`post-${post.id}`} className="space-y-4">
+                  <div key={post.id} id={`post-${post.id}`} className="space-y-0">
                     <FeedCard
                       post={post}
+                      comments={getPostComments(post.id)}
                       onLike={handleLike}
                       onComment={handleComment}
                       onBookmark={handleBookmark}
@@ -216,15 +251,6 @@ export default function SNSFeed() {
                       onReport={(postId) => console.log('Report:', postId)}
                       onShareMenu={(postId) => console.log('Share menu:', postId)}
                       onCopyLink={(postId) => console.log('Copy link:', postId)}
-                    />
-
-                    {/* Comments Section */}
-                    <CommentSection
-                      postId={post.id}
-                      comments={getPostComments(post.id)}
-                      userName="You"
-                      userAvatar="https://api.dicebear.com/7.x/avataaars/svg?seed=current_user"
-                      maxPreview={3}
                       onAddComment={handleAddComment}
                       onLikeComment={(commentId) =>
                         console.log('Like comment:', commentId)
@@ -232,6 +258,8 @@ export default function SNSFeed() {
                       onReportComment={(commentId) =>
                         console.log('Report comment:', commentId)
                       }
+                      userName="You"
+                      userAvatar="https://api.dicebear.com/7.x/avataaars/svg?seed=current_user"
                     />
                   </div>
                 ))}
@@ -240,7 +268,7 @@ export default function SNSFeed() {
           </div>
 
           {/* Trending Sidebar - Hidden on mobile */}
-          <aside className="hidden lg:block w-80 sticky top-6 h-fit">
+          <aside className="hidden lg:block w-96 sticky top-6 h-fit">
             <TrendingSection />
           </aside>
         </div>
