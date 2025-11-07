@@ -6,7 +6,8 @@
       "Bash(curl:*)",
       "Bash(gh issue view:*)",
       "Bash(xargs ls:*)",
-      "Bash(pnpm build:*)"
+      "Bash(pnpm build:*)",
+      "Bash(pnpm add:*)"
     ],
     "deny": [],
     "ask": []

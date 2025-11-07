@@ -9,8 +9,10 @@ import GenerationGallery, { GeneratedImage } from './_components/generation-gall
 import GenerationHistory, { HistoryItem } from './_components/generation-history';
 import { PageTransition } from '@/components/animations/page-transition';
 import { StaggerList, StaggerItem } from '@/components/animations/stagger-list';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function AIHommaPage() {
+  const { t } = useTranslation();
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([
     {
@@ -159,15 +161,15 @@ export default function AIHommaPage() {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2">
                       <Sparkles className="w-8 h-8 text-purple-600 animate-pulse" />
-                      <h1 className="text-4xl font-bold">AI HOMMA</h1>
+                      <h1 className="text-4xl font-bold">{t('pages.aiHomma.title')}</h1>
                     </div>
                     <Badge className="gap-1 bg-purple-500 text-white">
                       <Sparkles className="w-3 h-3" />
-                      AI 생성기
+                      {t('pages.aiHomma.generator')}
                     </Badge>
                   </div>
                   <p className="text-muted-foreground">
-                    생성형 AI로 KPOP 아티스트의 팬아트를 자동으로 생성합니다
+                    {t('pages.aiHomma.subtitle')}
                   </p>
                 </div>
               </StaggerItem>
@@ -179,12 +181,10 @@ export default function AIHommaPage() {
                     <Info className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                     <div className="flex flex-col gap-1">
                       <p className="text-sm font-semibold text-purple-900">
-                        AI Homma에 대해
+                        {t('pages.aiHomma.about')}
                       </p>
                       <p className="text-sm text-purple-700">
-                        이 서비스는 생성형 AI 기술을 활용하여 실시간으로 KPOP 아티스트의 팬아트를 생성합니다.
-                        생성되는 이미지는 AI가 만든 창작물이며, 실제 사진이 아닙니다.
-                        모든 생성물은 저작권 정책을 준수합니다.
+                        {t('pages.aiHomma.aboutDescription')}
                       </p>
                     </div>
                   </div>
@@ -210,9 +210,9 @@ export default function AIHommaPage() {
           {/* Right Column - Gallery */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             <div>
-              <h2 className="text-2xl font-bold mb-2">생성된 이미지</h2>
+              <h2 className="text-2xl font-bold mb-2">{t('pages.aiHomma.generatedImages')}</h2>
               <p className="text-muted-foreground text-sm">
-                {generatedImages.length}개의 이미지가 생성되었습니다
+                {generatedImages.length}{t('pages.aiHomma.imagesGenerated')}
               </p>
             </div>
             <GenerationGallery images={generatedImages} isLoading={false} />

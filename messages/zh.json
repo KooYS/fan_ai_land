@@ -1,0 +1,99 @@
+{
+  "navigation": {
+    "home": "首页",
+    "ranking": "排行榜",
+    "aiHomma": "AI 虹膜",
+    "feed": "动态",
+    "store": "商店"
+  },
+  "pages": {
+    "home": {
+      "title": "Fan AI Land",
+      "subtitle": "KPOP粉丝的AI驱动平台"
+    },
+    "ranking": {
+      "title": "AI排行榜",
+      "topRankings": "TOP 3 排行榜",
+      "thisWeek": "本周最受欢迎的粉丝内容",
+      "aiRankingChart": "AI排行榜",
+      "subtitle": "由AI技术分析的实时KPOP粉丝内容排行榜",
+      "daily": "每日",
+      "weekly": "每周",
+      "monthly": "每月",
+      "live": "实时",
+      "analyzing": "实时汇总中",
+      "aiScoreTitle": "什么是AI评分？",
+      "aiScoreDescription": "综合分析内容质量、参与度、趋势等的AI评分。评分越高，说明内容越受粉丝欢迎，质量越好。"
+    },
+    "aiHomma": {
+      "title": "AI HOMMA",
+      "subtitle": "使用生成型AI自动生成KPOP艺人的粉丝艺术作品",
+      "about": "关于AI Homma",
+      "aboutDescription": "该服务使用生成型AI技术实时生成KPOP艺人的粉丝艺术作品。生成的图像是AI创意作品，不是实际照片。所有生成的内容均符合版权政策。",
+      "generator": "AI生成器",
+      "generatedImages": "生成的图像",
+      "imagesGenerated": "个图像已生成"
+    },
+    "feed": {
+      "title": "动态",
+      "newPost": "发布新帖子"
+    }
+  },
+  "buttons": {
+    "like": "点赞",
+    "unlike": "取消点赞",
+    "comment": "评论",
+    "share": "分享",
+    "bookmark": "收藏",
+    "unbookmark": "取消收藏",
+    "reply": "回复",
+    "report": "举报",
+    "delete": "删除",
+    "edit": "编辑",
+    "cancel": "取消",
+    "submit": "提交",
+    "save": "保存",
+    "writeComment": "写评论",
+    "shareMenu": "分享",
+    "copyLink": "复制链接"
+  },
+  "labels": {
+    "artist": "艺人",
+    "style": "风格",
+    "quality": "质量",
+    "prompt": "提示词",
+    "generatedAt": "生成于",
+    "likes": "点赞",
+    "comments": "评论",
+    "views": "浏览",
+    "aiScore": "AI评分",
+    "verified": "已认证"
+  },
+  "messages": {
+    "loading": "加载中...",
+    "noData": "无可用数据",
+    "error": "发生错误",
+    "success": "成功",
+    "confirmDelete": "确定要删除吗？",
+    "replyTo": "回复"
+  },
+  "filters": {
+    "allArtists": "所有艺人",
+    "allStyles": "所有风格",
+    "thisWeek": "本周",
+    "thisMonth": "本月",
+    "allTime": "全时间",
+    "sortBy": "排序",
+    "aiScore": "AI评分",
+    "likes": "最受欢迎",
+    "views": "最多浏览",
+    "recent": "最新"
+  },
+  "language": {
+    "selectLanguage": "选择语言",
+    "korean": "한국어",
+    "english": "English",
+    "japanese": "日本語",
+    "chinese": "中文"
+  }
+}
