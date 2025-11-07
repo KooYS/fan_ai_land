@@ -76,7 +76,10 @@ export function LikeButton({
             fill={isLiked ? 'currentColor' : 'none'}
             color={isLiked ? '#ef4444' : 'currentColor'}
           />
-          {likeCount > 0 && <span className="ml-1 text-sm">{likeCount}</span>}
+          <span>
+            좋아요
+            {likeCount > 0 && <span className="text-sm">({likeCount})</span>}
+          </span>
         </Button>
       </motion.div>
 

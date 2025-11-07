@@ -69,9 +69,7 @@ const FeedActions = ({
               />
             </div>
           </TooltipTrigger>
-          <TooltipContent>
-            {liked ? '좋아요 취소' : '좋아요'}
-          </TooltipContent>
+          <TooltipContent>{liked ? '좋아요 취소' : '좋아요'}</TooltipContent>
         </Tooltip>
 
         {/* Comment Button with Interactive Animation */}
@@ -79,7 +77,7 @@ const FeedActions = ({
           <TooltipTrigger asChild>
             <InteractiveButton
               onClick={handleComment}
-              className="gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
+              className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
             >
               <MessageCircle className="w-4 h-4" />
               <span className="hidden sm:inline">댓글</span>
@@ -93,7 +91,7 @@ const FeedActions = ({
           <TooltipTrigger asChild>
             <InteractiveButton
               onClick={handleShare}
-              className="gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
+              className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
             >
               <Share2 className="w-4 h-4" />
               <span className="hidden sm:inline">공유</span>
