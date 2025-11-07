@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Award, Heart, Eye, TrendingUp } from 'lucide-react';
 import { RankingItem } from '@/types';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 interface RankingHeroProps {
   items: RankingItem[];
@@ -62,13 +63,19 @@ const RankingHero = ({ items }: RankingHeroProps) => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
         {topThree.map((item, index) => (
-          <Card
+          <motion.div
             key={item.id}
-            className={cn(
-              'overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer',
-              index === 0 && 'md:row-span-1 md:col-span-1'
-            )}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
           >
+            <Card
+              className={cn(
+                'overflow-hidden cursor-pointer h-full',
+                index === 0 && 'md:row-span-1 md:col-span-1'
+              )}
+            >
             <div className={`bg-gradient-to-b ${getMedalColor(item.rank)} p-6 text-white relative`}>
               {/* Rank Medal */}
               <div className="absolute top-4 right-4">
@@ -155,7 +162,8 @@ const RankingHero = ({ items }: RankingHeroProps) => {
                 </div>
               </div>
             </div>
-          </Card>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </div>

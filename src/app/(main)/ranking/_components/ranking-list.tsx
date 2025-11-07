@@ -3,9 +3,10 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { Award, Heart, Eye, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { Award, Eye, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 export interface RankingItem {
   id: string;
@@ -92,13 +93,17 @@ const RankingList = ({ items }: { items: RankingItem[] }) => {
   return (
     <div className="flex flex-col gap-4">
       {items.map((item) => (
-        <Card
+        <motion.div
           key={item.id}
-          className={cn(
-            'p-4 hover:shadow-lg transition-all cursor-pointer',
-            item.rank <= 3 && 'border-2 border-primary/30'
-          )}
+          whileHover={{ y: -4 }}
+          transition={{ duration: 0.2 }}
         >
+          <Card
+            className={cn(
+              'p-4 cursor-pointer',
+              item.rank <= 3 && 'border-2 border-primary/30'
+            )}
+          >
           <div className="flex gap-4">
             <div className="flex items-center">
               <RankBadge rank={item.rank} />
@@ -137,14 +142,22 @@ const RankingList = ({ items }: { items: RankingItem[] }) => {
               </div>
 
               <div className="flex items-center gap-4 text-sm">
-                <div className="flex items-center gap-1 text-muted-foreground">
-                  <Heart className="w-4 h-4" />
+                <motion.div
+                  className="flex items-center gap-1 text-muted-foreground"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="text-red-500">❤️</span>
                   <span>{formatNumber(item.likes)}</span>
-                </div>
-                <div className="flex items-center gap-1 text-muted-foreground">
+                </motion.div>
+                <motion.div
+                  className="flex items-center gap-1 text-muted-foreground"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Eye className="w-4 h-4" />
                   <span>{formatNumber(item.views)}</span>
-                </div>
+                </motion.div>
               </div>
             </div>
 
@@ -159,7 +172,8 @@ const RankingList = ({ items }: { items: RankingItem[] }) => {
               </div>
             </div>
           </div>
-        </Card>
+          </Card>
+        </motion.div>
       ))}
     </div>
   );

@@ -7,6 +7,8 @@ import GenerationForm, { GenerationConfig } from './_components/generation-form'
 import GenerationProgress from './_components/generation-progress';
 import GenerationGallery, { GeneratedImage } from './_components/generation-gallery';
 import GenerationHistory, { HistoryItem } from './_components/generation-history';
+import { PageTransition } from '@/components/animations/page-transition';
+import { StaggerList, StaggerItem } from '@/components/animations/stagger-list';
 
 export default function AIHommaPage() {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -146,44 +148,52 @@ export default function AIHommaPage() {
   };
 
   return (
-    <div className="container-wrapper">
-      <div className="container flex flex-col py-6 gap-6">
-        {/* Header */}
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-8 h-8 text-purple-600 animate-pulse" />
-              <h1 className="text-4xl font-bold">AI HOMMA</h1>
-            </div>
-            <Badge className="gap-1 bg-purple-500 text-white">
-              <Sparkles className="w-3 h-3" />
-              AI 생성기
-            </Badge>
-          </div>
-          <p className="text-muted-foreground">
-            생성형 AI로 KPOP 아티스트의 팬아트를 자동으로 생성합니다
-          </p>
-        </div>
+    <PageTransition>
+      <div className="container-wrapper">
+        <div className="container flex flex-col py-6 gap-6">
+          <StaggerList staggerDelay={0.1} delayChildren={0.2}>
+            <div className="space-y-6">
+              {/* Header */}
+              <StaggerItem>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-8 h-8 text-purple-600 animate-pulse" />
+                      <h1 className="text-4xl font-bold">AI HOMMA</h1>
+                    </div>
+                    <Badge className="gap-1 bg-purple-500 text-white">
+                      <Sparkles className="w-3 h-3" />
+                      AI 생성기
+                    </Badge>
+                  </div>
+                  <p className="text-muted-foreground">
+                    생성형 AI로 KPOP 아티스트의 팬아트를 자동으로 생성합니다
+                  </p>
+                </div>
+              </StaggerItem>
 
-        {/* Info Banner */}
-        <div className="rounded-lg border border-purple-200 bg-purple-50 p-4">
-          <div className="flex items-start gap-3">
-            <Info className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
-            <div className="flex flex-col gap-1">
-              <p className="text-sm font-semibold text-purple-900">
-                AI Homma에 대해
-              </p>
-              <p className="text-sm text-purple-700">
-                이 서비스는 생성형 AI 기술을 활용하여 실시간으로 KPOP 아티스트의 팬아트를 생성합니다.
-                생성되는 이미지는 AI가 만든 창작물이며, 실제 사진이 아닙니다.
-                모든 생성물은 저작권 정책을 준수합니다.
-              </p>
-            </div>
-          </div>
-        </div>
+              {/* Info Banner */}
+              <StaggerItem>
+                <div className="rounded-lg border border-purple-200 bg-purple-50 p-4">
+                  <div className="flex items-start gap-3">
+                    <Info className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                    <div className="flex flex-col gap-1">
+                      <p className="text-sm font-semibold text-purple-900">
+                        AI Homma에 대해
+                      </p>
+                      <p className="text-sm text-purple-700">
+                        이 서비스는 생성형 AI 기술을 활용하여 실시간으로 KPOP 아티스트의 팬아트를 생성합니다.
+                        생성되는 이미지는 AI가 만든 창작물이며, 실제 사진이 아닙니다.
+                        모든 생성물은 저작권 정책을 준수합니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Main Content Grid */}
+              <StaggerItem>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column - Form and Progress */}
           <div className="lg:col-span-1 flex flex-col gap-6">
             <GenerationForm onGenerate={handleGenerate} isGenerating={isGenerating} />
@@ -207,8 +217,12 @@ export default function AIHommaPage() {
             </div>
             <GenerationGallery images={generatedImages} isLoading={false} />
           </div>
+                </div>
+              </StaggerItem>
+            </div>
+          </StaggerList>
         </div>
       </div>
-    </div>
+    </PageTransition>
   );
 }
