@@ -1,5 +1,7 @@
 'use client';
 
+import { useRouter, usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -17,16 +19,18 @@ const languages = [
   { code: 'zh', name: '中文', flag: '🇨🇳' },
 ];
 
-interface LanguageSwitcherProps {
-  currentLanguage?: string;
-  onLanguageChange?: (lang: string) => void;
-}
+export function LanguageSwitcher() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale();
 
-export function LanguageSwitcher({
-  currentLanguage = 'ko',
-  onLanguageChange,
-}: LanguageSwitcherProps) {
-  const current = languages.find((lang) => lang.code === currentLanguage);
+  const current = languages.find((lang) => lang.code === locale);
+
+  const handleLanguageChange = (newLocale: string) => {
+    // Replace the current locale with the new one in the pathname
+    const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
+    router.push(newPathname);
+  };
 
   return (
     <DropdownMenu>
@@ -47,7 +51,7 @@ export function LanguageSwitcher({
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => onLanguageChange?.(lang.code)}
+            onClick={() => handleLanguageChange(lang.code)}
             className="gap-2 cursor-pointer"
           >
             <span>{lang.flag}</span>

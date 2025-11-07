@@ -9,10 +9,10 @@ import GenerationGallery, { GeneratedImage } from './_components/generation-gall
 import GenerationHistory, { HistoryItem } from './_components/generation-history';
 import { PageTransition } from '@/components/animations/page-transition';
 import { StaggerList, StaggerItem } from '@/components/animations/stagger-list';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslations } from 'next-intl';
 
 export default function AIHommaPage() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([
     {

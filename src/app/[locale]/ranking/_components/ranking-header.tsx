@@ -4,13 +4,13 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, TrendingUp, Radio } from 'lucide-react';
 import { useState } from 'react';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslations } from 'next-intl';
 
 type PeriodType = 'daily' | 'weekly' | 'monthly';
 
 const RankingHeader = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<PeriodType>('daily');
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <div className="flex flex-col gap-4">

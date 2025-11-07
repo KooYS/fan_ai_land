@@ -6,7 +6,7 @@ import MainRecentFeeds from './_components/main-recent-feeds';
 import MainStore from './_components/main-store';
 import AIHommaSection from './_components/ai-homma-section';
 import { mockMainRankingItems } from '@/data/mock-ranking';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslations } from 'next-intl';
 
 const bannerItems = [
   { src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=4140&auto=format&fit=crop' },
@@ -16,7 +16,7 @@ const bannerItems = [
 ];
 
 export default function Home() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <div className="container-wrapper">
