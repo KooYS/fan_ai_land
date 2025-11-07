@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import {
   Tooltip,
@@ -35,6 +36,7 @@ const FeedActions = ({
 }: FeedActionsProps) => {
   const [liked, setLiked] = useState(initialLiked);
   const [bookmarked, setBookmarked] = useState(initialBookmarked);
+  const t = useTranslations('buttons');
 
   const handleLike = (newLiked: boolean) => {
     setLiked(newLiked);
@@ -69,7 +71,7 @@ const FeedActions = ({
               />
             </div>
           </TooltipTrigger>
-          <TooltipContent>{liked ? '좋아요 취소' : '좋아요'}</TooltipContent>
+          <TooltipContent>{liked ? t('unlike') : t('like')}</TooltipContent>
         </Tooltip>
 
         {/* Comment Button with Interactive Animation */}
@@ -80,10 +82,10 @@ const FeedActions = ({
               className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
             >
               <MessageCircle className="w-4 h-4" />
-              <span className="hidden sm:inline">댓글</span>
+              <span className="hidden sm:inline">{t('comment')}</span>
             </InteractiveButton>
           </TooltipTrigger>
-          <TooltipContent>댓글 작성</TooltipContent>
+          <TooltipContent>{t('writeComment')}</TooltipContent>
         </Tooltip>
 
         {/* Share Button with Interactive Animation */}
@@ -94,10 +96,10 @@ const FeedActions = ({
               className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
             >
               <Share2 className="w-4 h-4" />
-              <span className="hidden sm:inline">공유</span>
+              <span className="hidden sm:inline">{t('share')}</span>
             </InteractiveButton>
           </TooltipTrigger>
-          <TooltipContent>공유하기</TooltipContent>
+          <TooltipContent>{t('shareMenu')}</TooltipContent>
         </Tooltip>
 
         {/* Spacer */}
@@ -126,7 +128,7 @@ const FeedActions = ({
             </motion.div>
           </TooltipTrigger>
           <TooltipContent>
-            {bookmarked ? '저장 취소' : '저장하기'}
+            {bookmarked ? t('unbookmark') : t('bookmark')}
           </TooltipContent>
         </Tooltip>
       </div>

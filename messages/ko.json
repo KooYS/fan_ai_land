@@ -1,0 +1,138 @@
+{
+  "navigation": {
+    "home": "홈",
+    "ranking": "랭킹",
+    "aiHomma": "AI 홈마",
+    "feed": "피드",
+    "store": "스토어"
+  },
+  "pages": {
+    "home": {
+      "title": "Fan AI Land",
+      "subtitle": "KPOP 팬들을 위한 AI 기반 플랫폼"
+    },
+    "ranking": {
+      "title": "AI 랭킹 차트",
+      "topRankings": "TOP 3 랭킹",
+      "thisWeek": "이주의 가장 인기있는 팬 콘텐츠",
+      "aiRankingChart": "AI 랭킹 차트",
+      "subtitle": "AI 기술로 분석된 실시간 KPOP 팬 콘텐츠 랭킹",
+      "daily": "일간",
+      "weekly": "주간",
+      "monthly": "월간",
+      "live": "라이브",
+      "analyzing": "실시간 집계 중",
+      "aiScoreTitle": "AI Score란?",
+      "aiScoreDescription": "콘텐츠 품질, 참여도, 트렌드 등을 종합적으로 분석한 AI 평가 점수입니다. 높을수록 팬들에게 인기 있는 고품질 콘텐츠를 의미합니다."
+    },
+    "aiHomma": {
+      "title": "AI HOMMA",
+      "subtitle": "생성형 AI로 KPOP 아티스트의 팬아트를 자동으로 생성합니다",
+      "about": "AI Homma에 대해",
+      "aboutDescription": "이 서비스는 생성형 AI 기술을 활용하여 실시간으로 KPOP 아티스트의 팬아트를 생성합니다. 생성되는 이미지는 AI가 만든 창작물이며, 실제 사진이 아닙니다. 모든 생성물은 저작권 정책을 준수합니다.",
+      "generator": "AI 생성기",
+      "generatedImages": "생성된 이미지",
+      "imagesGenerated": "개의 이미지가 생성되었습니다",
+      "justNow": "방금 전"
+    },
+    "feed": {
+      "title": "피드",
+      "newPost": "새 포스트 작성",
+      "composer": {
+        "title": "새 포스트 작성",
+        "subtitle": "팬 콘텐츠를 공유하세요",
+        "status": "지금 공유 중",
+        "contentLabel": "콘텐츠",
+        "contentPlaceholder": "여기에 팬 콘텐츠에 대해 작성해주세요...",
+        "hashtagHint": "해시태그를 #으로 시작해서 사용할 수 있습니다",
+        "artistLabel": "아티스트 태그",
+        "artistPlaceholder": "아티스트를 선택하세요 (선택사항)",
+        "imagesLabel": "이미지 추가",
+        "tipTitle": "팁: AI 홈마로 생성된 콘텐츠?",
+        "tipDescription": "AI Homma에서 생성한 이미지는 \"AI\" 라벨이 자동으로 추가됩니다.",
+        "submit": "포스트 작성",
+        "cancel": "취소",
+        "errorEmpty": "텍스트를 입력해주세요"
+      },
+      "trending": {
+        "title": "트렌딩",
+        "tagsTab": "태그",
+        "creatorsTab": "크리에이터",
+        "follow": "팔로우",
+        "following": "팔로우 중"
+      },
+      "stats": {
+        "liked": "명이 좋아합니다",
+        "comments": "댓글",
+        "views": "조회",
+        "posts": "개 포스트"
+      }
+    }
+  },
+  "buttons": {
+    "like": "좋아요",
+    "unlike": "좋아요 취소",
+    "comment": "댓글",
+    "share": "공유",
+    "bookmark": "저장",
+    "unbookmark": "저장 취소",
+    "reply": "답글",
+    "report": "신고",
+    "delete": "삭제",
+    "edit": "수정",
+    "cancel": "취소",
+    "submit": "제출",
+    "save": "저장하기",
+    "writeComment": "댓글 작성",
+    "shareMenu": "공유하기",
+    "copyLink": "링크 복사"
+  },
+  "labels": {
+    "artist": "아티스트",
+    "style": "스타일",
+    "quality": "품질",
+    "prompt": "프롬프트",
+    "generatedAt": "생성 시간",
+    "likes": "좋아요",
+    "comments": "댓글",
+    "views": "조회수",
+    "aiScore": "AI 점수",
+    "verified": "인증됨"
+  },
+  "messages": {
+    "loading": "로딩 중...",
+    "noData": "데이터가 없습니다",
+    "error": "오류가 발생했습니다",
+    "success": "성공했습니다",
+    "confirmDelete": "정말로 삭제하시겠습니까?",
+    "replyTo": "님에게 답글 중"
+  },
+  "filters": {
+    "allArtists": "모든 아티스트",
+    "allStyles": "모든 스타일",
+    "thisWeek": "이번 주",
+    "thisMonth": "이번 달",
+    "allTime": "전체 기간",
+    "sortBy": "정렬",
+    "aiScore": "AI 점수",
+    "likes": "좋아요 순",
+    "views": "조회수 순",
+    "recent": "최신순"
+  },
+  "language": {
+    "selectLanguage": "언어 선택",
+    "korean": "한국어",
+    "english": "English",
+    "japanese": "日本語",
+    "chinese": "中文"
+  },
+  "footer": {
+    "directions": "오시는길",
+    "companyName": "AMP",
+    "representative": "이종석",
+    "businessNumber": "248-86-01376",
+    "address": "서울 종로구 청계천로 85 904호",
+    "email": "help@duckzill.com",
+    "copyright": "© 2024 AMP. All Rights Reserved"
+  }
+}

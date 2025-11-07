@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import TrendIndicator, { TrendType } from './trend-indicator';
@@ -73,6 +74,8 @@ const TrendingCreators = ({
   onCreatorClick,
   onFollowClick,
 }: TrendingCreatorsProps) => {
+  const t = useTranslations('pages.feed.trending');
+
   return (
     <div className="space-y-2">
       {creators.map((creator, index) => (
@@ -99,7 +102,7 @@ const TrendingCreators = ({
             <div className="flex-1 text-left min-w-0">
               <p className="font-medium text-sm truncate">@{creator.username}</p>
               <p className="text-xs text-muted-foreground">
-                팔로워 {creator.followers.toLocaleString()}명
+                {t('follow')} {creator.followers.toLocaleString()}명
               </p>
             </div>
           </Button>
@@ -116,7 +119,7 @@ const TrendingCreators = ({
               className="text-xs h-7 px-2.5"
               onClick={() => onFollowClick?.(creator.id)}
             >
-              {creator.isFollowing ? '팔로잉' : '팔로우'}
+              {creator.isFollowing ? t('following') : t('follow')}
             </Button>
           </div>
         </div>

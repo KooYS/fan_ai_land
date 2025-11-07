@@ -1,0 +1,138 @@
+{
+  "navigation": {
+    "home": "Home",
+    "ranking": "Ranking",
+    "aiHomma": "AI Homma",
+    "feed": "Feed",
+    "store": "Store"
+  },
+  "pages": {
+    "home": {
+      "title": "Fan AI Land",
+      "subtitle": "AI-powered platform for KPOP fans"
+    },
+    "ranking": {
+      "title": "AI Ranking Chart",
+      "topRankings": "TOP 3 Rankings",
+      "thisWeek": "This week's most popular fan content",
+      "aiRankingChart": "AI Ranking Chart",
+      "subtitle": "Real-time KPOP fan content ranking analyzed by AI technology",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "live": "LIVE",
+      "analyzing": "Real-time aggregation",
+      "aiScoreTitle": "What is AI Score?",
+      "aiScoreDescription": "An AI evaluation score that comprehensively analyzes content quality, engagement, trends, and more. The higher the score, the better quality content that is popular with fans."
+    },
+    "aiHomma": {
+      "title": "AI HOMMA",
+      "subtitle": "Automatically generate fan art of KPOP artists using generative AI",
+      "about": "About AI Homma",
+      "aboutDescription": "This service uses generative AI technology to generate KPOP artist fan art in real-time. Generated images are AI creations and not actual photos. All generated content complies with copyright policies.",
+      "generator": "AI Generator",
+      "generatedImages": "Generated Images",
+      "imagesGenerated": "images generated",
+      "justNow": "just now"
+    },
+    "feed": {
+      "title": "Feed",
+      "newPost": "Write a new post",
+      "composer": {
+        "title": "Write a new post",
+        "subtitle": "Share your fan content",
+        "status": "Now sharing",
+        "contentLabel": "Content",
+        "contentPlaceholder": "Write about your fan content here...",
+        "hashtagHint": "You can use hashtags starting with #",
+        "artistLabel": "Artist tag",
+        "artistPlaceholder": "Select an artist (optional)",
+        "imagesLabel": "Add images",
+        "tipTitle": "Tip: Content generated from AI Homma?",
+        "tipDescription": "Images generated from AI Homma automatically get an \"AI\" label.",
+        "submit": "Create post",
+        "cancel": "Cancel",
+        "errorEmpty": "Please enter some text"
+      },
+      "trending": {
+        "title": "Trending",
+        "tagsTab": "Tags",
+        "creatorsTab": "Creators",
+        "follow": "Follow",
+        "following": "Following"
+      },
+      "stats": {
+        "liked": "people liked this",
+        "comments": "Comments",
+        "views": "Views",
+        "posts": " posts"
+      }
+    }
+  },
+  "buttons": {
+    "like": "Like",
+    "unlike": "Unlike",
+    "comment": "Comment",
+    "share": "Share",
+    "bookmark": "Save",
+    "unbookmark": "Unsave",
+    "reply": "Reply",
+    "report": "Report",
+    "delete": "Delete",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "save": "Save",
+    "writeComment": "Write a comment",
+    "shareMenu": "Share",
+    "copyLink": "Copy link"
+  },
+  "labels": {
+    "artist": "Artist",
+    "style": "Style",
+    "quality": "Quality",
+    "prompt": "Prompt",
+    "generatedAt": "Generated",
+    "likes": "Likes",
+    "comments": "Comments",
+    "views": "Views",
+    "aiScore": "AI Score",
+    "verified": "Verified"
+  },
+  "messages": {
+    "loading": "Loading...",
+    "noData": "No data available",
+    "error": "An error occurred",
+    "success": "Success",
+    "confirmDelete": "Are you sure you want to delete?",
+    "replyTo": "Reply to"
+  },
+  "filters": {
+    "allArtists": "All Artists",
+    "allStyles": "All Styles",
+    "thisWeek": "This Week",
+    "thisMonth": "This Month",
+    "allTime": "All Time",
+    "sortBy": "Sort by",
+    "aiScore": "AI Score",
+    "likes": "Most Liked",
+    "views": "Most Viewed",
+    "recent": "Recent"
+  },
+  "language": {
+    "selectLanguage": "Select Language",
+    "korean": "한국어",
+    "english": "English",
+    "japanese": "日本語",
+    "chinese": "中文"
+  },
+  "footer": {
+    "directions": "Directions",
+    "companyName": "AMP",
+    "representative": "Lee Jong-seok",
+    "businessNumber": "248-86-01376",
+    "address": "904, 85 Cheonggyecheon-ro, Jongno-gu, Seoul",
+    "email": "help@duckzill.com",
+    "copyright": "© 2024 AMP. All Rights Reserved"
+  }
+}

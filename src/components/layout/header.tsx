@@ -6,6 +6,7 @@ import { Button } from "@/ui/button"
 import { CommandSearch } from "@/components/layout/command-search"
 import { UserCircle, Users, Radio, Eye } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { LanguageSwitcher } from "@/components/layout/language-switcher"
 import { useEffect, useState } from 'react';
 
 export function Header() {
@@ -61,8 +62,9 @@ export function Header() {
                 <span className="font-semibold text-foreground">{formatNumber(totalViews)}</span>
               </div>
             </div>
-            <nav className="flex items-center gap-4">
+            <nav className="flex items-center gap-2">
               <CommandSearch />
+              <LanguageSwitcher />
               <Button
                 asChild
                 variant="ghost"

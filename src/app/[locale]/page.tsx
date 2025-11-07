@@ -1,9 +1,12 @@
+'use client';
+
 import MainBanner from './_components/main-banner';
 import MainRanking from './_components/main-ranking';
 import MainRecentFeeds from './_components/main-recent-feeds';
 import MainStore from './_components/main-store';
 import AIHommaSection from './_components/ai-homma-section';
 import { mockMainRankingItems } from '@/data/mock-ranking';
+import { useTranslations } from 'next-intl';
 
 const bannerItems = [
   { src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=4140&auto=format&fit=crop' },
@@ -13,6 +16,8 @@ const bannerItems = [
 ];
 
 export default function Home() {
+  const t = useTranslations();
+
   return (
     <div className="container-wrapper">
       <div>
@@ -22,13 +27,13 @@ export default function Home() {
         <div className="rounded-lg border border-black/20 border-dashed bg-white backdrop-blur-md p-6  w-full gap-2 flex flex-col">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <h1 className="text-xl font-bold">RANKING</h1>
+              <h1 className="text-xl font-bold">{t('navigation.ranking')}</h1>
               <div className="flex items-center gap-2 text-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                 </span>
-                <span className="text-muted-foreground text-xs">실시간 업데이트 중</span>
+                <span className="text-muted-foreground text-xs">{t('pages.ranking.thisWeek')}</span>
               </div>
             </div>
           </div>
