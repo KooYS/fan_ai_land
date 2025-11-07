@@ -9,6 +9,8 @@ import RankingCharts from './_components/ranking-charts';
 import { mockRankingItems } from '@/data/mock-ranking';
 import { RankingItem } from '@/types';
 import type { RankingFilters as RankingFiltersType } from './_components/ranking-filters';
+import { PageTransition } from '@/components/animations/page-transition';
+import { StaggerList, StaggerItem } from '@/components/animations/stagger-list';
 
 export default function RankingPage() {
   const [filters, setFilters] = useState<RankingFiltersType>({
@@ -43,24 +45,39 @@ export default function RankingPage() {
   }) as RankingItem[];
 
   return (
-    <div className="container-wrapper">
-      <div className="container flex flex-col py-6 gap-6">
-        <RankingHeader />
+    <PageTransition>
+      <div className="container-wrapper">
+        <div className="container flex flex-col py-6 gap-6">
+          <StaggerList staggerDelay={0.1} delayChildren={0.15}>
+            <div className="space-y-6">
+              <StaggerItem>
+                <RankingHeader />
+              </StaggerItem>
 
-        {/* Hero Section - Top 3 */}
-        <RankingHero items={mockRankingItems} />
+              <StaggerItem>
+                <RankingHero items={mockRankingItems} />
+              </StaggerItem>
 
-        {/* Charts Section */}
-        <div className="rounded-lg border border-border bg-card p-6">
-          <RankingCharts items={mockRankingItems} />
+              {/* Charts Section */}
+              <StaggerItem>
+                <div className="rounded-lg border border-border bg-card p-6">
+                  <RankingCharts items={mockRankingItems} />
+                </div>
+              </StaggerItem>
+
+              {/* Filters Section */}
+              <StaggerItem>
+                <RankingFilters onFilterChange={setFilters} />
+              </StaggerItem>
+
+              {/* Ranking List */}
+              <StaggerItem>
+                <RankingList items={filteredAndSortedItems} />
+              </StaggerItem>
+            </div>
+          </StaggerList>
         </div>
-
-        {/* Filters Section */}
-        <RankingFilters onFilterChange={setFilters} />
-
-        {/* Ranking List */}
-        <RankingList items={filteredAndSortedItems} />
       </div>
-    </div>
+    </PageTransition>
   );
 }

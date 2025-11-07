@@ -7,6 +7,7 @@ import { Comment } from './_components/comment/comment-item';
 import PostComposerSheet, { PostData } from './_components/post-composer/post-composer-sheet';
 import PostComposerFAB from './_components/post-composer/post-composer-fab';
 import TrendingSection from './_components/trending/trending-section';
+import { StaggerList, StaggerItem } from '@/components/animations/stagger-list';
 
 // Mock data for posts
 const initialPosts: FeedCardPost[] = [
@@ -238,32 +239,36 @@ export default function SNSFeed() {
           {/* Main Feed */}
           <div className="flex-1 min-w-0 max-w-2xl mx-auto lg:mx-0">
             <ScrollArea className="h-[calc(100vh-40px)] pr-4">
-              <div className="space-y-4">
-                {posts.map((post) => (
-                  <div key={post.id} id={`post-${post.id}`} className="space-y-0">
-                    <FeedCard
-                      post={post}
-                      comments={getPostComments(post.id)}
-                      onLike={handleLike}
-                      onComment={handleComment}
-                      onBookmark={handleBookmark}
-                      onHashtagClick={(tag) => console.log('Tag clicked:', tag)}
-                      onReport={(postId) => console.log('Report:', postId)}
-                      onShareMenu={(postId) => console.log('Share menu:', postId)}
-                      onCopyLink={(postId) => console.log('Copy link:', postId)}
-                      onAddComment={handleAddComment}
-                      onLikeComment={(commentId) =>
-                        console.log('Like comment:', commentId)
-                      }
-                      onReportComment={(commentId) =>
-                        console.log('Report comment:', commentId)
-                      }
-                      userName="You"
-                      userAvatar="https://api.dicebear.com/7.x/avataaars/svg?seed=current_user"
-                    />
-                  </div>
-                ))}
-              </div>
+              <StaggerList staggerDelay={0.08} delayChildren={0.1}>
+                <div className="space-y-4">
+                  {posts.map((post) => (
+                    <StaggerItem key={post.id}>
+                      <div id={`post-${post.id}`} className="space-y-0">
+                        <FeedCard
+                          post={post}
+                          comments={getPostComments(post.id)}
+                          onLike={handleLike}
+                          onComment={handleComment}
+                          onBookmark={handleBookmark}
+                          onHashtagClick={(tag) => console.log('Tag clicked:', tag)}
+                          onReport={(postId) => console.log('Report:', postId)}
+                          onShareMenu={(postId) => console.log('Share menu:', postId)}
+                          onCopyLink={(postId) => console.log('Copy link:', postId)}
+                          onAddComment={handleAddComment}
+                          onLikeComment={(commentId) =>
+                            console.log('Like comment:', commentId)
+                          }
+                          onReportComment={(commentId) =>
+                            console.log('Report comment:', commentId)
+                          }
+                          userName="You"
+                          userAvatar="https://api.dicebear.com/7.x/avataaars/svg?seed=current_user"
+                        />
+                      </div>
+                    </StaggerItem>
+                  ))}
+                </div>
+              </StaggerList>
             </ScrollArea>
           </div>
 
