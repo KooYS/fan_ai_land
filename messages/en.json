@@ -32,7 +32,8 @@
       "aboutDescription": "This service uses generative AI technology to generate KPOP artist fan art in real-time. Generated images are AI creations and not actual photos. All generated content complies with copyright policies.",
       "generator": "AI Generator",
       "generatedImages": "Generated Images",
-      "imagesGenerated": "images generated"
+      "imagesGenerated": "images generated",
+      "justNow": "just now"
     },
     "feed": {
       "title": "Feed",

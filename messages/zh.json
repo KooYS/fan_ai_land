@@ -32,7 +32,8 @@
       "aboutDescription": "该服务使用生成型AI技术实时生成KPOP艺人的粉丝艺术作品。生成的图像是AI创意作品，不是实际照片。所有生成的内容均符合版权政策。",
       "generator": "AI生成器",
       "generatedImages": "生成的图像",
-      "imagesGenerated": "个图像已生成"
+      "imagesGenerated": "个图像已生成",
+      "justNow": "刚刚"
     },
     "feed": {
       "title": "动态",

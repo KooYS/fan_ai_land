@@ -32,7 +32,8 @@
       "aboutDescription": "このサービスは、生成AIテクノロジーを使用して、リアルタイムでKPOPアーティストのファンアートを生成します。生成された画像はAIの創作物であり、実際の写真ではありません。すべての生成されたコンテンツは著作権ポリシーに準拠しています。",
       "generator": "AI生成器",
       "generatedImages": "生成された画像",
-      "imagesGenerated": "個の画像が生成されました"
+      "imagesGenerated": "個の画像が生成されました",
+      "justNow": "今たった今"
     },
     "feed": {
       "title": "フィード",
