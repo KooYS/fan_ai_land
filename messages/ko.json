@@ -37,7 +37,35 @@
     },
     "feed": {
       "title": "피드",
-      "newPost": "새 포스트 작성"
+      "newPost": "새 포스트 작성",
+      "composer": {
+        "title": "새 포스트 작성",
+        "subtitle": "팬 콘텐츠를 공유하세요",
+        "status": "지금 공유 중",
+        "contentLabel": "콘텐츠",
+        "contentPlaceholder": "여기에 팬 콘텐츠에 대해 작성해주세요...",
+        "hashtagHint": "해시태그를 #으로 시작해서 사용할 수 있습니다",
+        "artistLabel": "아티스트 태그",
+        "artistPlaceholder": "아티스트를 선택하세요 (선택사항)",
+        "imagesLabel": "이미지 추가",
+        "tipTitle": "팁: AI 홈마로 생성된 콘텐츠?",
+        "tipDescription": "AI Homma에서 생성한 이미지는 \"AI\" 라벨이 자동으로 추가됩니다.",
+        "submit": "포스트 작성",
+        "cancel": "취소",
+        "errorEmpty": "텍스트를 입력해주세요"
+      },
+      "trending": {
+        "title": "트렌딩",
+        "tagsTab": "태그",
+        "creatorsTab": "크리에이터",
+        "follow": "팔로우",
+        "following": "팔로우 중"
+      },
+      "stats": {
+        "liked": "명이 좋아합니다",
+        "comments": "댓글",
+        "views": "조회"
+      }
     }
   },
   "buttons": {
@@ -96,5 +124,14 @@
     "english": "English",
     "japanese": "日本語",
     "chinese": "中文"
+  },
+  "footer": {
+    "directions": "오시는길",
+    "companyName": "AMP",
+    "representative": "구영서",
+    "businessNumber": "248-86-01376",
+    "address": "서울 종로구 청계천로 85 904호",
+    "email": "help@duckzill.com",
+    "copyright": "© 2024 AMP. All Rights Reserved"
   }
 }

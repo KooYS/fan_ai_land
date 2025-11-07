@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,6 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { usePathname } from '@/i18n/navigation';
 
 const languages = [
   { code: 'ko', name: '한국어', flag: '🇰🇷' },
@@ -20,16 +20,14 @@ const languages = [
 ];
 
 export function LanguageSwitcher() {
-  const router = useRouter();
-  const pathname = usePathname();
   const locale = useLocale();
-
+  const pathname = usePathname();
   const current = languages.find((lang) => lang.code === locale);
 
   const handleLanguageChange = (newLocale: string) => {
-    // Replace the current locale with the new one in the pathname
-    const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
-    router.push(newPathname);
+    // Use window.location for full page reload to ensure locale change
+    const newPath = `/${newLocale}${pathname}`;
+    window.location.href = newPath;
   };
 
   return (

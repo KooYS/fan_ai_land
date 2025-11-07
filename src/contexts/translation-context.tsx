@@ -1,8 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { getPreferredLanguage, setStoredLanguage } from '@/lib/i18n';
-import type { SupportedLanguage } from '@/lib/i18n';
+import type { Locale } from '@/i18n';
 
 // 정적 메시지 임포트
 import koMessages from '@/messages/ko.json';
@@ -12,7 +11,7 @@ import zhMessages from '@/messages/zh.json';
 
 type Messages = Record<string, unknown>;
 
-const messagesMap: Record<SupportedLanguage, Messages> = {
+const messagesMap: Record<Locale, Messages> = {
   ko: koMessages,
   en: enMessages,
   ja: jaMessages,
@@ -20,9 +19,9 @@ const messagesMap: Record<SupportedLanguage, Messages> = {
 };
 
 interface TranslationContextType {
-  language: SupportedLanguage;
+  language: Locale;
   messages: Messages;
-  changeLanguage: (lang: SupportedLanguage) => void;
+  changeLanguage: (lang: Locale) => void;
   t: (key: string, defaultValue?: string) => string;
 }
 
@@ -41,14 +40,14 @@ const getNestedValue = (obj: Messages, path: string): string | undefined => {
 };
 
 export function TranslationProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<SupportedLanguage>('ko');
+  const [language, setLanguage] = useState<Locale>('ko');
   const [messages, setMessages] = useState<Messages>(koMessages);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // 클라이언트에서만 실행
     setMounted(true);
-    const preferred = getPreferredLanguage();
+    const preferred = (localStorage.getItem('language') as Locale) || 'ko';
     setLanguage(preferred);
     setMessages(messagesMap[preferred]);
   }, []);
@@ -58,9 +57,9 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     return value || defaultValue || key;
   };
 
-  const changeLanguage = (newLang: SupportedLanguage) => {
+  const changeLanguage = (newLang: Locale) => {
     setLanguage(newLang);
-    setStoredLanguage(newLang);
+    localStorage.setItem('language', newLang);
     setMessages(messagesMap[newLang]);
   };
 
@@ -82,7 +81,7 @@ export function useTranslation() {
   // 마운트되지 않은 SSR 단계에서는 기본값 반환
   if (!context) {
     return {
-      language: 'ko' as SupportedLanguage,
+      language: 'ko' as Locale,
       messages: koMessages,
       changeLanguage: () => {},
       t: (key: string, defaultValue?: string): string => defaultValue || key,

@@ -37,7 +37,35 @@
     },
     "feed": {
       "title": "フィード",
-      "newPost": "新しい投稿を作成"
+      "newPost": "新しい投稿を作成",
+      "composer": {
+        "title": "新しい投稿を作成",
+        "subtitle": "ファンコンテンツをシェアしてください",
+        "status": "現在シェア中",
+        "contentLabel": "コンテンツ",
+        "contentPlaceholder": "ファンコンテンツについてここに書いてください...",
+        "hashtagHint": "#で始まるハッシュタグを使用できます",
+        "artistLabel": "アーティストタグ",
+        "artistPlaceholder": "アーティストを選択してください（オプション）",
+        "imagesLabel": "画像を追加",
+        "tipTitle": "ヒント：AI Hommaで生成されたコンテンツ？",
+        "tipDescription": "AI Hommaから生成された画像には自動的に「AI」ラベルが追加されます。",
+        "submit": "投稿を作成",
+        "cancel": "キャンセル",
+        "errorEmpty": "テキストを入力してください"
+      },
+      "trending": {
+        "title": "トレンド",
+        "tagsTab": "タグ",
+        "creatorsTab": "クリエイター",
+        "follow": "フォロー",
+        "following": "フォロー中"
+      },
+      "stats": {
+        "liked": "人がいいねしました",
+        "comments": "コメント",
+        "views": "表示"
+      }
     }
   },
   "buttons": {
@@ -96,5 +124,14 @@
     "english": "English",
     "japanese": "日本語",
     "chinese": "中文"
+  },
+  "footer": {
+    "directions": "アクセス",
+    "companyName": "AMP",
+    "representative": "クー・ヨンソ",
+    "businessNumber": "248-86-01376",
+    "address": "ソウル종로区清渓川路85号904号",
+    "email": "help@duckzill.com",
+    "copyright": "© 2024 AMP. All Rights Reserved"
   }
 }

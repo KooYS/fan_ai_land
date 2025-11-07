@@ -1,25 +1,23 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
+import { Link } from '@/i18n/navigation';
 
 export function MainNav() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-4 flex items-center gap-2 lg:mr-6">
-        <span className="hidden font-bold lg:inline-block">
-          Fan AI Land
-        </span>
+        <span className="hidden font-bold lg:inline-block">Fan AI Land</span>
       </Link>
       <nav className="flex items-center gap-4 text-sm xl:gap-6">
         <Link
           href="/ranking"
           className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname === "/ranking" ? "text-foreground" : "text-foreground/80"
+            'transition-colors hover:text-foreground/80',
+            pathname === '/ranking' ? 'text-foreground' : 'text-foreground/80'
           )}
         >
           Ranking
@@ -27,10 +25,10 @@ export function MainNav() {
         <Link
           href="/feed"
           className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/feed")
-              ? "text-foreground"
-              : "text-foreground/80"
+            'transition-colors hover:text-foreground/80',
+            pathname?.startsWith('/feed')
+              ? 'text-foreground'
+              : 'text-foreground/80'
           )}
         >
           Feed
@@ -38,15 +36,15 @@ export function MainNav() {
         <Link
           href="/store"
           className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/store")
-              ? "text-foreground"
-              : "text-foreground/80"
+            'transition-colors hover:text-foreground/80',
+            pathname?.startsWith('/store')
+              ? 'text-foreground'
+              : 'text-foreground/80'
           )}
         >
           Store
         </Link>
       </nav>
     </div>
-  )
+  );
 }

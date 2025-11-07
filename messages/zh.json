@@ -37,7 +37,35 @@
     },
     "feed": {
       "title": "动态",
-      "newPost": "发布新帖子"
+      "newPost": "发布新帖子",
+      "composer": {
+        "title": "发布新帖子",
+        "subtitle": "分享您的粉丝内容",
+        "status": "现在分享中",
+        "contentLabel": "内容",
+        "contentPlaceholder": "在这里写下关于您的粉丝内容...",
+        "hashtagHint": "您可以使用以#开头的标签",
+        "artistLabel": "艺人标签",
+        "artistPlaceholder": "选择艺人（可选）",
+        "imagesLabel": "添加图像",
+        "tipTitle": "提示：AI Homma生成的内容？",
+        "tipDescription": "从AI Homma生成的图像会自动添加\"AI\"标签。",
+        "submit": "创建帖子",
+        "cancel": "取消",
+        "errorEmpty": "请输入一些文本"
+      },
+      "trending": {
+        "title": "热门",
+        "tagsTab": "标签",
+        "creatorsTab": "创作者",
+        "follow": "关注",
+        "following": "已关注"
+      },
+      "stats": {
+        "liked": "人点赞了",
+        "comments": "评论",
+        "views": "浏览"
+      }
     }
   },
   "buttons": {
@@ -96,5 +124,14 @@
     "english": "English",
     "japanese": "日本語",
     "chinese": "中文"
+  },
+  "footer": {
+    "directions": "位置",
+    "companyName": "AMP",
+    "representative": "古永瑞",
+    "businessNumber": "248-86-01376",
+    "address": "首尔钟路区清溪川路85号904号",
+    "email": "help@duckzill.com",
+    "copyright": "© 2024 AMP. All Rights Reserved"
   }
 }

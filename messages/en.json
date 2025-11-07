@@ -37,7 +37,35 @@
     },
     "feed": {
       "title": "Feed",
-      "newPost": "Write a new post"
+      "newPost": "Write a new post",
+      "composer": {
+        "title": "Write a new post",
+        "subtitle": "Share your fan content",
+        "status": "Now sharing",
+        "contentLabel": "Content",
+        "contentPlaceholder": "Write about your fan content here...",
+        "hashtagHint": "You can use hashtags starting with #",
+        "artistLabel": "Artist tag",
+        "artistPlaceholder": "Select an artist (optional)",
+        "imagesLabel": "Add images",
+        "tipTitle": "Tip: Content generated from AI Homma?",
+        "tipDescription": "Images generated from AI Homma automatically get an \"AI\" label.",
+        "submit": "Create post",
+        "cancel": "Cancel",
+        "errorEmpty": "Please enter some text"
+      },
+      "trending": {
+        "title": "Trending",
+        "tagsTab": "Tags",
+        "creatorsTab": "Creators",
+        "follow": "Follow",
+        "following": "Following"
+      },
+      "stats": {
+        "liked": "people liked this",
+        "comments": "Comments",
+        "views": "Views"
+      }
     }
   },
   "buttons": {
@@ -96,5 +124,14 @@
     "english": "English",
     "japanese": "日本語",
     "chinese": "中文"
+  },
+  "footer": {
+    "directions": "Directions",
+    "companyName": "AMP",
+    "representative": "Koo Young-seo",
+    "businessNumber": "248-86-01376",
+    "address": "904, 85 Cheonggyecheon-ro, Jongno-gu, Seoul",
+    "email": "help@duckzill.com",
+    "copyright": "© 2024 AMP. All Rights Reserved"
   }
 }

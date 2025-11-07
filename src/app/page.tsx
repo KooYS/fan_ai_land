@@ -1,5 +1,5 @@
+import { routing } from '@/i18n/routing';
 import { redirect } from 'next/navigation';
-import { defaultLocale } from '@/i18n';
 
 /**
  * Root Page (/)
@@ -10,5 +10,5 @@ import { defaultLocale } from '@/i18n';
  * - URL에서 locale 프리픽스 생략
  */
 export default function RootPage() {
-  redirect(`/${defaultLocale}`);
+  redirect(`/${routing.defaultLocale}`);
 }
