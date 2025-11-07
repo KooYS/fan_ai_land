@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Sparkles } from 'lucide-react';
@@ -23,6 +24,7 @@ const TrendingSection = ({
   onFollowClick,
 }: TrendingSectionProps) => {
   const [activeTab, setActiveTab] = useState('tags');
+  const t = useTranslations('pages.feed.trending');
 
   return (
     <Card className="overflow-hidden">
@@ -30,17 +32,17 @@ const TrendingSection = ({
         {/* Header */}
         <div className="flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-amber-500" />
-          <h2 className="font-bold text-lg">트렌딩</h2>
+          <h2 className="font-bold text-lg">{t('title')}</h2>
         </div>
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2 bg-muted/50">
             <TabsTrigger value="tags" className="text-sm">
-              태그
+              {t('tagsTab')}
             </TabsTrigger>
             <TabsTrigger value="creators" className="text-sm">
-              크리에이터
+              {t('creatorsTab')}
             </TabsTrigger>
           </TabsList>
 

@@ -64,7 +64,8 @@
       "stats": {
         "liked": "people liked this",
         "comments": "Comments",
-        "views": "Views"
+        "views": "Views",
+        "posts": " posts"
       }
     }
   },
@@ -128,7 +129,7 @@
   "footer": {
     "directions": "Directions",
     "companyName": "AMP",
-    "representative": "Koo Young-seo",
+    "representative": "Lee Jong-seok",
     "businessNumber": "248-86-01376",
     "address": "904, 85 Cheonggyecheon-ro, Jongno-gu, Seoul",
     "email": "help@duckzill.com",

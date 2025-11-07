@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import TrendIndicator, { TrendType } from './trend-indicator';
 
@@ -28,6 +29,8 @@ const TrendingTags = ({
   tags = DEFAULT_TRENDING_TAGS,
   onTagClick,
 }: TrendingTagsProps) => {
+  const t = useTranslations('pages.feed.stats');
+
   return (
     <div className="space-y-2">
       {tags.map((tag, index) => (
@@ -44,7 +47,7 @@ const TrendingTags = ({
             <div className="flex-1 text-left min-w-0">
               <p className="font-medium text-sm break-words">#{tag.tag}</p>
               <p className="text-xs text-muted-foreground">
-                {tag.posts.toLocaleString()}개 포스트
+                {tag.posts.toLocaleString()}{t('posts')}
               </p>
             </div>
           </div>

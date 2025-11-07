@@ -64,7 +64,8 @@
       "stats": {
         "liked": "명이 좋아합니다",
         "comments": "댓글",
-        "views": "조회"
+        "views": "조회",
+        "posts": "개 포스트"
       }
     }
   },
@@ -128,7 +129,7 @@
   "footer": {
     "directions": "오시는길",
     "companyName": "AMP",
-    "representative": "구영서",
+    "representative": "이종석",
     "businessNumber": "248-86-01376",
     "address": "서울 종로구 청계천로 85 904호",
     "email": "help@duckzill.com",

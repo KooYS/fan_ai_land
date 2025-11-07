@@ -64,7 +64,8 @@
       "stats": {
         "liked": "人点赞了",
         "comments": "评论",
-        "views": "浏览"
+        "views": "浏览",
+        "posts": "个帖子"
       }
     }
   },
@@ -128,7 +129,7 @@
   "footer": {
     "directions": "位置",
     "companyName": "AMP",
-    "representative": "古永瑞",
+    "representative": "李钟石",
     "businessNumber": "248-86-01376",
     "address": "首尔钟路区清溪川路85号904号",
     "email": "help@duckzill.com",

@@ -64,7 +64,8 @@
       "stats": {
         "liked": "人がいいねしました",
         "comments": "コメント",
-        "views": "表示"
+        "views": "表示",
+        "posts": "件の投稿"
       }
     }
   },
@@ -128,7 +129,7 @@
   "footer": {
     "directions": "アクセス",
     "companyName": "AMP",
-    "representative": "クー・ヨンソ",
+    "representative": "リ・ジョンソク",
     "businessNumber": "248-86-01376",
     "address": "ソウル종로区清渓川路85号904号",
     "email": "help@duckzill.com",
