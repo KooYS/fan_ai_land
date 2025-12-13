@@ -76,9 +76,9 @@ const RankingHero = ({ items }: RankingHeroProps) => {
                 index === 0 && 'md:row-span-1 md:col-span-1'
               )}
             >
-            <div className={`bg-gradient-to-b ${getMedalColor(item.rank)} p-6 text-white relative`}>
+            <div className="p-6 relative">
               {/* Rank Medal */}
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 z-10">
                 <div
                   className={cn(
                     'w-16 h-16 rounded-full flex items-center justify-center shadow-lg',
@@ -88,9 +88,6 @@ const RankingHero = ({ items }: RankingHeroProps) => {
                   <Award className="w-8 h-8 text-white" />
                 </div>
               </div>
-
-              {/* Rank Number */}
-              <div className="text-6xl font-bold opacity-30 mb-4">{item.rank}</div>
 
               {/* Image */}
               <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
@@ -104,10 +101,10 @@ const RankingHero = ({ items }: RankingHeroProps) => {
 
               {/* Content Info */}
               <div className="space-y-2">
-                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                <Badge variant="secondary">
                   {item.artistName}
                 </Badge>
-                <h3 className="font-bold text-lg line-clamp-2 text-white">
+                <h3 className="font-bold text-lg line-clamp-2">
                   {item.contentTitle}
                 </h3>
 
@@ -117,7 +114,7 @@ const RankingHero = ({ items }: RankingHeroProps) => {
                     <AvatarImage src={item.uploaderAvatar} />
                     <AvatarFallback>{item.uploaderName.charAt(0)}</AvatarFallback>
                   </Avatar>
-                  <span className="text-xs text-white/90">{item.uploaderName}</span>
+                  <span className="text-xs text-muted-foreground">{item.uploaderName}</span>
                 </div>
               </div>
             </div>

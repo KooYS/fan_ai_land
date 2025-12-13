@@ -162,7 +162,7 @@ const RankingList = ({ items }: { items: RankingItem[] }) => {
             </div>
 
             <div className="flex items-center">
-              <div className="flex flex-col items-center gap-2 bg-primary/10 rounded-lg p-4">
+              <div className="flex flex-col items-center gap-2 rounded-lg p-4">
                 <span className="text-xs text-muted-foreground font-medium">
                   AI Score
                 </span>

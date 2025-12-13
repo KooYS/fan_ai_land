@@ -25,6 +25,7 @@ export interface FeedCardPost {
   timestamp: string;
   likedByUser?: boolean;
   bookmarkedByUser?: boolean;
+  aiGenerated?: boolean;
 }
 
 interface FeedCardProps {
@@ -98,6 +99,7 @@ const FeedCard = ({
           hashtags={post.hashtags}
           media={post.media}
           onHashtagClick={onHashtagClick}
+          aiGenerated={post.aiGenerated}
         />
 
         {/* Stats */}
@@ -114,14 +116,15 @@ const FeedCard = ({
           postId={post.id}
           liked={post.likedByUser}
           bookmarked={post.bookmarkedByUser}
+          aiGenerated={post.aiGenerated}
           onLike={onLike}
           onComment={handleComment}
           onShare={onShare}
           onBookmark={onBookmark}
         />
 
-        {/* Comment Section - Hidden by default */}
-        {showComments && (
+        {/* Comment Section - Hidden by default, not available for AI generated posts */}
+        {showComments && !post.aiGenerated && (
           <CommentSection
             postId={post.id}
             comments={comments}

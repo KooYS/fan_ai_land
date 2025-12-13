@@ -19,6 +19,7 @@ interface FeedActionsProps {
   postId: string;
   liked?: boolean;
   bookmarked?: boolean;
+  aiGenerated?: boolean;
   onLike?: (postId: string) => void;
   onComment?: (postId: string) => void;
   onShare?: (postId: string) => void;
@@ -29,6 +30,7 @@ const FeedActions = ({
   postId,
   liked: initialLiked = false,
   bookmarked: initialBookmarked = false,
+  aiGenerated = false,
   onLike,
   onComment,
   onShare,
@@ -59,78 +61,83 @@ const FeedActions = ({
   return (
     <TooltipProvider>
       <div className="flex items-center gap-1 text-muted-foreground py-2">
-        {/* Like Button with Animation */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <div>
-              <LikeButton
-                liked={liked}
-                count={0}
-                onLike={handleLike}
-                className="gap-2 text-sm h-8"
-              />
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>{liked ? t('unlike') : t('like')}</TooltipContent>
-        </Tooltip>
+        {/* Comment Button with Interactive Animation - Hidden for AI generated posts */}
+        {!aiGenerated && (
+          <>
+            {/* Like Button with Animation */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div>
+                  <LikeButton
+                    liked={liked}
+                    count={0}
+                    onLike={handleLike}
+                    className="gap-2 text-sm h-8"
+                  />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>{liked ? t('unlike') : t('like')}</TooltipContent>
+            </Tooltip>
 
-        {/* Comment Button with Interactive Animation */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <InteractiveButton
-              onClick={handleComment}
-              className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span className="hidden sm:inline">{t('comment')}</span>
-            </InteractiveButton>
-          </TooltipTrigger>
-          <TooltipContent>{t('writeComment')}</TooltipContent>
-        </Tooltip>
-
-        {/* Share Button with Interactive Animation */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <InteractiveButton
-              onClick={handleShare}
-              className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
-            >
-              <Share2 className="w-4 h-4" />
-              <span className="hidden sm:inline">{t('share')}</span>
-            </InteractiveButton>
-          </TooltipTrigger>
-          <TooltipContent>{t('shareMenu')}</TooltipContent>
-        </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <InteractiveButton
+                  onClick={handleComment}
+                  className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span className="hidden sm:inline">{t('comment')}</span>
+                </InteractiveButton>
+              </TooltipTrigger>
+              <TooltipContent>{t('writeComment')}</TooltipContent>
+            </Tooltip>
+            {/* Share Button with Interactive Animation */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <InteractiveButton
+                  onClick={handleShare}
+                  className="flex items-center gap-2 text-sm h-8 px-3 py-2 rounded-md hover:bg-accent"
+                >
+                  <Share2 className="w-4 h-4" />
+                  <span className="hidden sm:inline">{t('share')}</span>
+                </InteractiveButton>
+              </TooltipTrigger>
+              <TooltipContent>{t('shareMenu')}</TooltipContent>
+            </Tooltip>
+            {/* Bookmark Button with Interactive Animation */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={cn(
+                      'gap-2 text-sm h-8',
+                      bookmarked && 'text-amber-500 hover:text-amber-600'
+                    )}
+                    onClick={handleBookmark}
+                  >
+                    <Bookmark
+                      className={cn(
+                        'w-4 h-4 transition-all',
+                        bookmarked && 'fill-current'
+                      )}
+                    />
+                  </Button>
+                </motion.div>
+              </TooltipTrigger>
+              <TooltipContent>
+                {bookmarked ? t('unbookmark') : t('bookmark')}
+              </TooltipContent>
+            </Tooltip>
+          </>
+        )}
 
         {/* Spacer */}
         <div className="flex-1" />
-
-        {/* Bookmark Button with Interactive Animation */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                variant="ghost"
-                size="sm"
-                className={cn(
-                  'gap-2 text-sm h-8',
-                  bookmarked && 'text-amber-500 hover:text-amber-600'
-                )}
-                onClick={handleBookmark}
-              >
-                <Bookmark
-                  className={cn(
-                    'w-4 h-4 transition-all',
-                    bookmarked && 'fill-current'
-                  )}
-                />
-              </Button>
-            </motion.div>
-          </TooltipTrigger>
-          <TooltipContent>
-            {bookmarked ? t('unbookmark') : t('bookmark')}
-          </TooltipContent>
-        </Tooltip>
       </div>
     </TooltipProvider>
   );

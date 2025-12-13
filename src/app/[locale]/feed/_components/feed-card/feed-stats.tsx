@@ -26,10 +26,10 @@ const FeedStats = ({ likes, comments, views }: FeedStatsProps) => {
         <span>{formatNumber(likes)}명이 좋아합니다</span>
       </div>
 
-      <div className="flex items-center gap-1 cursor-pointer hover:text-foreground transition-colors">
+      {/* <div className="flex items-center gap-1 cursor-pointer hover:text-foreground transition-colors">
         <MessageCircle className="w-3.5 h-3.5" />
         <span>댓글 {formatNumber(comments)}</span>
-      </div>
+      </div> */}
 
       {views !== undefined && (
         <div className="flex items-center gap-1 text-muted-foreground">

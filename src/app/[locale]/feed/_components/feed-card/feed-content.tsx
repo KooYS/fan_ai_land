@@ -9,7 +9,7 @@ import {
   DialogContent,
   DialogDescription,
 } from '@/components/ui/dialog';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export interface MediaItem {
@@ -26,6 +26,7 @@ interface FeedContentProps {
   media?: MediaItem[];
   onHashtagClick?: (tag: string) => void;
   expandable?: boolean;
+  aiGenerated?: boolean;
 }
 
 const MAX_PREVIEW_LENGTH = 200;
@@ -36,6 +37,7 @@ const FeedContent = ({
   media = [],
   onHashtagClick,
   expandable = true,
+  aiGenerated = false,
 }: FeedContentProps) => {
   const [expanded, setExpanded] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -88,6 +90,19 @@ const FeedContent = ({
         </div>
       )}
 
+      {/* AI Generated Badge */}
+      {aiGenerated && (
+        <div className="flex items-center gap-2">
+          <Badge
+            variant="outline"
+            className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/30 text-purple-700 dark:text-purple-300"
+          >
+            <Sparkles className="w-3 h-3 mr-1" />
+            AI 생성
+          </Badge>
+        </div>
+      )}
+
       {/* "Read More" Button */}
       {isLongText && expandable && (
         <Button
@@ -116,7 +131,7 @@ const FeedContent = ({
                 src={images[0].url}
                 alt={images[0].alt || 'Post image'}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
             </div>
@@ -144,7 +159,7 @@ const FeedContent = ({
                       src={image.url}
                       alt={image.alt || `Post image ${idx + 1}`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
 

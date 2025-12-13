@@ -1,12 +1,12 @@
 'use client';
 
-import Link from "next/link"
-import { MainNav } from "@/components/layout/nav"
-import { Button } from "@/ui/button"
-import { CommandSearch } from "@/components/layout/command-search"
-import { UserCircle, Users, Radio, Eye } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { LanguageSwitcher } from "@/components/layout/language-switcher"
+import Link from 'next/link';
+import { MainNav } from '@/components/layout/nav';
+import { Button } from '@/ui/button';
+import { CommandSearch } from '@/components/layout/command-search';
+import { UserCircle, Users, Radio, Eye } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { LanguageSwitcher } from '@/components/layout/language-switcher';
 import { useEffect, useState } from 'react';
 
 export function Header() {
@@ -45,34 +45,34 @@ export function Header() {
           <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
             <div className="hidden lg:flex items-center gap-4 text-sm">
               <div className="flex items-center gap-1.5 text-muted-foreground">
-                <Badge variant="destructive" className="gap-1 h-5 px-1.5 animate-pulse">
+                <Badge
+                  variant="destructive"
+                  className="gap-1 h-5 px-1.5 animate-pulse"
+                >
                   <Radio className="w-3 h-3" />
                 </Badge>
                 <Users className="w-4 h-4" />
-                <span className="font-semibold text-foreground">{formatNumber(onlineUsers)}</span>
+                <span className="font-semibold text-foreground">1</span>
               </div>
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <Badge variant="secondary" className="gap-1 h-5 px-1.5">
                   <Radio className="w-3 h-3" />
                 </Badge>
-                <span className="font-semibold text-foreground">{liveContent}</span>
+                <span className="font-semibold text-foreground">
+                  {liveContent}
+                </span>
               </div>
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <Eye className="w-4 h-4" />
-                <span className="font-semibold text-foreground">{formatNumber(totalViews)}</span>
+                <span className="font-semibold text-foreground">23</span>
               </div>
             </div>
             <nav className="flex items-center gap-2">
               <CommandSearch />
               <LanguageSwitcher />
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="h-6 w-6"
-              >
+              <Button asChild variant="ghost" size="icon" className="h-6 w-6">
                 <Link
-                  href={""}
+                  href={''}
                   target="_blank"
                   className="h-6 w-6"
                   rel="noreferrer"
@@ -85,5 +85,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
